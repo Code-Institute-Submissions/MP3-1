@@ -68,6 +68,57 @@ Website contains:
 
 ### Wireframes
 
+- Landing Page
+
+    <details><summary>Desktop</summary>
+
+    ![](md_data/wireframes/DesktopLandingPage.png)
+    </details>
+    <details><summary>Mobile</summary>
+    
+    ![](md_data/wireframes/MobileLandingPage.png)
+    </details>
+- All Coins Page
+
+    <details><summary>Desktop</summary>
+
+    ![](md_data/wireframes/DesktopAllCoinsPage.png)
+    </details>
+    <details><summary>Mobile</summary>
+    
+    ![](md_data/wireframes/MobileAllCoinsPage.png)
+    </details>
+- All Coins Page
+
+    <details><summary>Desktop</summary>
+
+    ![](md_data/wireframes/DesktopAddCoinPage.png)
+    </details>
+    <details><summary>Mobile</summary>
+    
+    ![](md_data/wireframes/MobileAddCoinPage.png)
+    </details>
+- Register Page
+
+    <details><summary>Desktop</summary>
+
+    ![](md_data/wireframes/DesktopRegister.png)
+    </details>
+    <details><summary>Mobile</summary>
+    
+    ![](md_data/wireframes/MobileRegister.png)
+    </details>
+- Login Page
+
+    <details><summary>Desktop</summary>
+
+    ![](md_data/wireframes/DesktopLogin.png)
+    </details>
+
+    <details><summary>Mobile</summary>
+    
+    ![](md_data/wireframes/MobileLogin.png)
+    </details>
 
 ## Surface
 
