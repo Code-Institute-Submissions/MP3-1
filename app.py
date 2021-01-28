@@ -18,7 +18,8 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def get_user_data():
+@app.route("/home")
+def home():
     username = list(mongo.db.users.find())
     return render_template("profile.html", users=username)
 
