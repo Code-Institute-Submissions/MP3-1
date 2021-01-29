@@ -1,14 +1,18 @@
 body{
     background-color: #B0BEC5;
     color:#000000;
+    margin-top:4.5em;
+    margin-bottom:4.5em;
 }
 
 a{
-    color:#B0BEC5;
+    color: dimgrey;
+}
+a:hover{
+    color: #FFA000;
 }
 
 h2{
-    margin-top: 100px;
     background-color: dimgrey;
     text-align: center;
 }
@@ -27,5 +31,13 @@ nav a:hover{
 
 footer a{
     font-weight: 600 !important;
+}
 
+/* register form */
+form i, form button i{
+    font-size: 125%;
+}
+
+form a{
+    font-weight: 600;
 }
