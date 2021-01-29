@@ -1,18 +1,31 @@
 body{
     background-color: #B0BEC5;
+    color:#000000;
 }
+
 a{
     color:#B0BEC5;
-}
-nav button{
-    background-color: #FFA000 !important;
-}
-nav a:hover{
-    color: #FFA000 !important;
 }
 
 h2{
     margin-top: 100px;
     background-color: dimgrey;
     text-align: center;
+}
+
+/* navigation */
+
+nav button{
+    background-color: #FFA000 !important;
+}
+
+nav a:hover{
+    color: #FFA000 !important;
+}
+
+/* footer */
+
+footer a{
+    font-weight: 600 !important;
+
 }
