@@ -1,3 +1,5 @@
+/* all sites */
+
 body{
     background-color: #B0BEC5;
     color:#000000;
@@ -33,9 +35,20 @@ footer a{
     font-weight: 600 !important;
 }
 
+/* flash messages */
+
+.flashes h4 {
+    line-height: 2;
+}
+
 /* register form */
+
 form i, form button i{
     font-size: 125%;
+}
+
+form .btn{
+    margin:0;
 }
 
 form a{

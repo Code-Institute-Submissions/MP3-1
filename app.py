@@ -1,8 +1,10 @@
 import os
-from flask import Flask, render_template
+from flask import (
+    Flask, render_template, request, flash, session, url_for, redirect)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -21,12 +23,35 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    username = list(mongo.db.users.find())
-    return render_template("profile.html", users=username)
+    users = list(mongo.db.users.find())
+    return render_template("profile.html", users=users)
 
 
+# Register page
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # check for existing email
+        existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_user:
+            flash("Email already exists")
+            return redirect(url_for("register"))
+        # create new user
+        newuser = {
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
+            "timestamp": datetime.now(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        # add user into db
+        mongo.db.users.insert_one(newuser)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("email").lower()
+        flash("Registration Successful!")
     return render_template("register.html")
 
 

@@ -3,7 +3,7 @@
 <h1 class="sr-only">Register form</h1>
 <div class="row no-gutters">
     <!-- Card from: https://mdbootstrap.com/docs/b4/jquery/forms/inputs/-->
-    <div class="card col-sm-12 col-md-8 offset-md-2">
+    <div class="card col-sm-12 col-lg-8 offset-lg-2">
         <div>
             <img class="card-img-top" src="static/images/unsplash-simon-zRxLgc-o56I.jpg" alt="Form image">
         </div>
@@ -19,7 +19,8 @@
                     <i class="fas fa-user-tie mx-3"></i>
                 </div>
                 <div class="col-sm-7">
-                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
+                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" minlength="2"
+                        maxlength="20" pattern="^[a-zA-Z]{2,20}$" required>
                 </div>
             </div>
             <!-- last name -->
@@ -29,7 +30,8 @@
                     <i class="fas fa-user-tie mx-3"></i>
                 </div>
                 <div class="col-sm-7">
-                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" minlength="2"
+                        maxlength="20" pattern="^[a-zA-Z]{2,20}$" required>
                 </div>
             </div>
             <!-- email -->
@@ -39,7 +41,9 @@
                     <i class="fas fa-envelope mx-3"></i>
                 </div>
                 <div class="col-sm-7">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email adderss" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email adderss" minlength="5"
+                        maxlength="35" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}${5,35}$" required>
+                        <!-- Regular expresion pattern from: http://www.regular-expressions.info/email.html -->
                 </div>
             </div>
             <!-- password -->
@@ -49,7 +53,8 @@
                     <i class="fas fa-user-lock mx-3"></i>
                 </div>
                 <div class="col-sm-7">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="8"
+                        maxlength="15" pattern="^[a-zA-Z0-9._%+-]{8,15}$" required>
                 </div>
             </div>
             <!-- register button -->
