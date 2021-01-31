@@ -96,7 +96,19 @@ def profile(user_email):
     users = list(mongo.db.users.find())
     email = mongo.db.users.find_one(
          {"email": session["user_email"]})["email"]
-    return render_template("profile.html", user_email=email, users=users)
+    # check if session email exist
+    if session["user_email"]:
+        return render_template("profile.html", user_email=email, users=users)
+    return redirect(url_for("login"))
+
+
+# Logout route
+@app.route("/logout")
+def logout():
+    # remove user from session cookie and redirect to login
+    flash("You have been looged out")
+    session.pop("user_email")
+    return redirect(url_for("login"))
 
 
 # Environment variables
