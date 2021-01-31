@@ -54,3 +54,9 @@ form .btn{
 form a{
     font-weight: 600;
 }
+
+/* profile */
+
+.p-left .col{
+    padding-left: 0;
+}

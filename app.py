@@ -27,8 +27,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    users = list(mongo.db.users.find())
-    return render_template("profile.html", users=users)
+    return render_template("profile.html")
 
 
 # Register route
@@ -56,6 +55,7 @@ def register():
         # put the new user into 'session' cookie
         session["user_email"] = request.form.get("email").lower()
         flash("Registration Successful!")
+        return redirect(url_for("profile", user_email=session["user_email"]))
     return render_template("register.html")
 
 
@@ -75,7 +75,8 @@ def login():
                 # return first name and surname
                 flash("Welcome, {0} {1}".format(
                     existing_user["first_name"], existing_user["last_name"]))
-        # return redirect(url_for("profile", username=session["user_email"]))
+                return redirect(url_for(
+                    "profile", user_email=session["user_email"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -86,6 +87,16 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
     return render_template("login.html")
+
+
+# Profile route
+@app.route("/profile/<user_email>", methods=["GET", "POST"])
+def profile(user_email):
+    # grab all users list & the session user's email from db
+    users = list(mongo.db.users.find())
+    email = mongo.db.users.find_one(
+         {"email": session["user_email"]})["email"]
+    return render_template("profile.html", user_email=email, users=users)
 
 
 # Environment variables
