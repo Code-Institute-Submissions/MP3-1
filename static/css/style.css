@@ -29,6 +29,9 @@ nav a:hover{
     color: #FFA000 !important;
 }
 
+.nav-link{
+    text-align: center;
+}
 /* footer */
 
 footer a{
