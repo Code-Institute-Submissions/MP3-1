@@ -31,7 +31,7 @@ def home():
     return render_template("profile.html", users=users)
 
 
-# Register page
+# Register route
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -57,6 +57,12 @@ def register():
         session["user"] = request.form.get("email").lower()
         flash("Registration Successful!")
     return render_template("register.html")
+
+
+# Login route
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
 
 
 # Environment variables

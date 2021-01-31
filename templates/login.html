@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="sr-only">Register form</h1>
+<h1 class="sr-only">Log In</h1>
 <div class="row no-gutters">
     <!-- Card from: https://mdbootstrap.com/docs/b4/jquery/forms/inputs/-->
     <div class="card col-sm-12 col-lg-8 offset-lg-2">
@@ -8,32 +8,10 @@
             <img class="card-img-top" src="static/images/unsplash-simon-zRxLgc-o56I.jpg" alt="Form image">
         </div>
         <!-- Form from: https://mdbootstrap.com/docs/b4/jquery/components/cards/ -->
-        <form class="card-body elegant-color amber-text text-center rounded-bottom" method="POST" action="{{ url_for('register') }}">
+        <form class="card-body elegant-color amber-text text-center rounded-bottom" method="POST" action="{{ url_for('login') }}">
             <!-- title -->
-            <h4 class="card-title">Join our community today!</h4>
+            <h4 class="card-title">Welcome back!</h4>
             <hr class="hr-light">
-            <!-- first name -->
-            <div class="row my-3">
-                <div class="col-sm-5">
-                    <label for="first_name" class="col-form-label">First Name</label>
-                    <i class="fas fa-user-tie mx-3"></i>
-                </div>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" minlength="2"
-                        maxlength="20" pattern="^[a-zA-Z]{2,20}$" required>
-                </div>
-            </div>
-            <!-- last name -->
-            <div class="row my-3">
-                <div class="col-sm-5">
-                    <label for="last_name" class="col-form-label">Last Name</label>
-                    <i class="fas fa-user-tie mx-3"></i>
-                </div>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" minlength="2"
-                        maxlength="20" pattern="^[a-zA-Z]{2,20}$" required>
-                </div>
-            </div>
             <!-- email -->
             <div class="row my-3">
                 <div class="col-sm-5">
@@ -57,15 +35,15 @@
                         maxlength="15" pattern="^[a-zA-Z0-9._%+-]{8,15}$" required>
                 </div>
             </div>
-            <!-- register button -->
+            <!-- login button -->
             <div class="row my-3">
                 <div class="col-sm-8 offset-sm-2">
-                <button type="submit" class="col-sm-12 btn btn-amber black-text">Register
+                <button type="submit" class="col-sm-12 btn btn-amber black-text">Log In
                     <i class="fas fa-sign-in-alt ml-3"></i>
                 </button>
                 </div>
             </div>
-            <p class="card-text white-text mb-4">If you have an account please <a href="{{ url_for('login') }}">Log In</a>.</p>
+            <p class="card-text white-text mb-4">If you don't have an account please <a href="{{ url_for('register') }}">Register</a> today.</p>
         </form>
     </div>
 </div>
