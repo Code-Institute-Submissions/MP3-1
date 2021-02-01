@@ -27,7 +27,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    coins = list(mongo.db.coins.find())
+    return render_template("home.html", coins=coins)
 
 
 # Register route
@@ -111,7 +112,15 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Catalog route
+@app.route("/catalog")
+def catalog():
+    coins = list(mongo.db.coins.find())
+    return render_template("catalog.html", coins=coins)
+
+
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")))
+            port=int(os.environ.get("PORT")),
+            debug=True)

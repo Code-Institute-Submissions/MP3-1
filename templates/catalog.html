@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+    <!-- loop through a coins table and extract a data -->
+        {% for coin in coins %}
+        <div class="col">
+            <div class="card">
+                <!--Card image-->
+                <div class="row">
+                <div class="col">
+                    <img class="card-img-top" src="{{ coin.image }}" alt="{{ coin.name }}">
+                </div>
+                <!--Card content-->
+                <div class="col card-body">
+                    <h4 class="card-title">{{ coin.description }}</h4>
+                    <p class="card-text">{{ coin.name }}</p>
+                    <p class="card-text">{{ coin.type }}</p>
+                    <p class="card-text">{{ coin.weight }}</p>
+                    <p class="card-text">{{ coin.mint }}</p>
+                    <p class="card-text">{{ coin.country }}</p>
+                    <p class="card-text">{{ coin.purity }}</p>
+                    <p class="card-text">{{ coin.year }}</p>
+                    <p class="card-text">{{ coin.timestamp }}</p>
+                    <p class="card-text">{{ coin.created_by }}</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
