@@ -63,3 +63,41 @@ form a{
 .p-left .col{
     padding-left: 0;
 }
+
+/* catalog */
+
+.offset{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.img-backgrund{
+    background-color: #0e0e0e;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.img-backgrund img{
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+@media (min-width: 768px){
+    .img-backgrund img {
+        max-width: 550px;
+    }
+}
+
+@media (min-width: 992px){
+    .img-backgrund img {
+        position: absolute;
+    }
+}
+
+@media (min-width: 1200px){
+    .img-backgrund img {
+        max-width: 395px;
+        left: 1.5em;
+    }
+}

@@ -1,31 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row">
-    <!-- loop through a coins table and extract a data -->
-        {% for coin in coins %}
-        <div class="col">
+
+<!-- loop through a coins table and extract a data -->
+{% for coin in coins %}
+    <div class="row offset">
+        <div class="col mb-4">
             <div class="card">
-                <!--Card image-->
-                <div class="row">
-                <div class="col">
-                    <img class="card-img-top" src="{{ coin.image }}" alt="{{ coin.name }}">
-                </div>
-                <!--Card content-->
-                <div class="col card-body">
-                    <h4 class="card-title">{{ coin.description }}</h4>
-                    <p class="card-text">{{ coin.name }}</p>
-                    <p class="card-text">{{ coin.type }}</p>
-                    <p class="card-text">{{ coin.weight }}</p>
-                    <p class="card-text">{{ coin.mint }}</p>
-                    <p class="card-text">{{ coin.country }}</p>
-                    <p class="card-text">{{ coin.purity }}</p>
-                    <p class="card-text">{{ coin.year }}</p>
-                    <p class="card-text">{{ coin.timestamp }}</p>
-                    <p class="card-text">{{ coin.created_by }}</p>
-                </div>
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <!--Card image-->
+                    <div class="col img-backgrund">
+                        <img class="my-lg-auto" src="{{ coin.image }}" alt="{{ coin.name }}">
+                    </div>
+                    <!--Card content-->
+                    <div class="col elegant-color amber-text">
+                        <h4 class="card-title text-center my-4">{{ coin.description }}</h4>
+                        <div class="row col-form-label">
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Name:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.name }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Type:</p>
+                            </div>
+                            <div class="col-7">
+                                <p >{{ coin.type }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Weight:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.weight }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Mint:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.mint }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Country:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.country }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Purity:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.purity }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Year:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.year }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
+{% endfor %}
 {% endblock %}
