@@ -121,7 +121,8 @@ def catalog():
 
 @app.route("/new_coin")
 def new_coin():
-    return render_template("new_coin.html")
+    type = mongo.db.coin_type.find().sort("type", 1)
+    return render_template("new_coin.html", type=type)
 
 
 # Environment variables

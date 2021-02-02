@@ -118,14 +118,53 @@ form a{
     }
 }
 
-@media (min-width: 767px){
-    .p-right button{
-        width:145px;
-    }
+.form-control{
+    color: inherit ;
 }
 
-@media (min-width: 768px) and (max-width: 992px){
-    .p-right{
-        padding-right: 0;
-    }
+/* I used some of this code for select: https://www.codeseek.co/pudgereyem/material-design-andltselectandgt-element-css-only-PqBxQx */
+/* Style Select Field */
+select {
+    font-family: inherit;
+    background-color: inherit;
+    width: 100%;
+    padding: 4px 0;
+    font-size: 16px;
+    border: none;
+}
+
+option{
+    /* change option colors */
+    background-color: #2e2e2e;
+    color: #FFA000;
+}
+
+/* Use custom arrow */
+.mdl-selectfield select {
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+    /* remove border */
+    border: none;
+    border-bottom: 1px solid #ced4da;
+}
+
+.mdl-selectfield {
+    font-family: 'Roboto','Helvetica','Arial',sans-serif;
+    position: relative;
+}
+
+.mdl-selectfield:after {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    /* Styling the down arrow */
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: 0.375em solid #ffc107;
+    pointer-events: none;
 }
