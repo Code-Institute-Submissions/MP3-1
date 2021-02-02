@@ -107,3 +107,25 @@ form a{
 .md-form .validate{
     margin-bottom: inherit;
 }
+
+.offset label{
+    padding-top: 0.66em;
+}
+
+@media (max-width: 576px){
+    .offset label {
+        text-align: center;
+    }
+}
+
+@media (min-width: 767px){
+    .p-right button{
+        width:145px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px){
+    .p-right{
+        padding-right: 0;
+    }
+}

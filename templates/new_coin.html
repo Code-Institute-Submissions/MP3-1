@@ -5,38 +5,109 @@
 <div class="row no-gutters">
     <!-- Card from: https://mdbootstrap.com/docs/b4/jquery/forms/inputs/-->
     <form class="card col offset"  method="POST" action="">
-        <div class="card-body elegant-color amber-text text-center rounded p-left">
+        <div class="card-body elegant-color amber-text rounded">
             <!-- title -->
-            <h4 class="card-title text-uppercase">Add new coin</h4>
-            <hr class="hr-light mb-3 mb-md-5">
-            <!-- coin name -->
+            <h4 class="card-title text-center text-uppercase">Add new coin</h4>
+            <hr class="hr-light mb-3 mb-sm-5">
             <div class="row">
-                <label for="name" class="col-sm-4 col-form-label">Name</label>
-                <div class="col-sm-8">
-                    <div class="md-form mt-0">
-                        <input type="text" class="form-control validate amber-text " id="name" name="name" placeholder="Coin name" minlength="5"
-                            maxlength="30" pattern="^[a-zA-Z]{5,20}$" required>
+                <div class="col-md-6">
+                    <!-- coin name -->
+                    <div class="row">
+                        <label for="name" class="col-sm-4 col-form-label">Name</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control validate amber-text " id="name" name="name" placeholder="Coin name" minlength="5"
+                                    maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- coin type -->
+                    <div class="row">
+                        <label for="type" class="col-sm-4 col-form-label">Type</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control validate amber-text" id="type" name="type" placeholder="Coin type" minlength="5"
+                                    maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- coin weight -->
+                    <div class="row">
+                        <label for="weight" class="col-sm-4 col-form-label">Weight</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control validate amber-text" id="weight" name="weight" placeholder="Coin weight" minlength="5"
+                                    maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label for="country" class="col-sm-4 col-form-label">Country</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control validate amber-text " id="country" name="country" placeholder="Country" minlength="5"
+                                    maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- coin type -->
+                    <div class="row">
+                        <label for="purity" class="col-sm-4 col-form-label">Purity</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control validate amber-text" id="purity" name="purity" placeholder="Purity" minlength="5"
+                                    maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- coin mint -->
+                    <div class="row">
+                        <label for="mint" class="col-sm-4 col-form-label">Mint</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control validate amber-text" id="mint" name="mint" placeholder="Coin mint" minlength="5"
+                                    maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- coin type -->
+            
             <div class="row">
-                <label for="type" class="col-sm-4 col-form-label">Type</label>
-                <div class="col-sm-8">
-                    <div class="md-form mt-0">
-                        <input type="text" class="form-control validate amber-text" id="type" name="type" placeholder="Coin type" minlength="5"
-                            maxlength="30" pattern="^[a-zA-Z]{5,20}$" required>
+                <div class="col">
+                <!-- coin description -->
+                <div class="row">
+                    <label for="description" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Description</label>
+                    <div class="col-sm-8 col-md-9 col-lg-10">
+                        <div class="md-form mt-0">
+                            <input type="text" class="md-textarea form-control validate amber-text" id="description" name="description"
+                                placeholder="Description" minlength="5" maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                        </div>
                     </div>
                 </div>
+                <!-- coin image -->
+                <div class="row">
+                    <label for="image" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Image</label>
+                    <div class="col-sm-8 col-md-9 col-lg-10">
+                        <div class="md-form mt-0">
+                            <input type="text" class="form-control validate amber-text" id="image" name="image" placeholder="Image" minlength="5"
+                                maxlength="30" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
+            
             <!-- buttons -->
             <div class="row my-3">
                 <!-- submit button -->
-                <div class="col-sm-5 offset-sm-1">
+                <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-3 col-lg-4 offset-lg-3 p-right">
                     <button type="submit" class="col-md-8 btn btn-md btn-amber black-text">Add coin</button>
                 </div>
                 <!-- cancel button -->
-                <div class="col-sm-5 mt-2 mt-sm-0">
+                <div class="col-sm-5 mt-2 mt-sm-0 col-md-4 col-lg-4 p-right">
                     <button type="reset" class="col-md-8 btn btn-md btn-amber black-text">Cancel</button>
                 </div>
             </div>
