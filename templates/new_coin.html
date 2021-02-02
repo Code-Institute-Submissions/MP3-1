@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="sr-only">Add new coin</h1>
+<div class="row no-gutters">
+    <!-- Card from: https://mdbootstrap.com/docs/b4/jquery/forms/inputs/-->
+    <form class="card col offset"  method="POST" action="">
+        <div class="card-body elegant-color amber-text text-center rounded p-left">
+            <!-- title -->
+            <h4 class="card-title text-uppercase">Add new coin</h4>
+            <hr class="hr-light mb-3 mb-md-5">
+            <!-- coin name -->
+            <div class="row">
+                <label for="name" class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm-8">
+                    <div class="md-form mt-0">
+                        <input type="text" class="form-control validate amber-text " id="name" name="name" placeholder="Coin name" minlength="5"
+                            maxlength="30" pattern="^[a-zA-Z]{5,20}$" required>
+                    </div>
+                </div>
+            </div>
+            <!-- coin type -->
+            <div class="row">
+                <label for="type" class="col-sm-4 col-form-label">Type</label>
+                <div class="col-sm-8">
+                    <div class="md-form mt-0">
+                        <input type="text" class="form-control validate amber-text" id="type" name="type" placeholder="Coin type" minlength="5"
+                            maxlength="30" pattern="^[a-zA-Z]{5,20}$" required>
+                    </div>
+                </div>
+            </div>
+            <!-- buttons -->
+            <div class="row my-3">
+                <!-- submit button -->
+                <div class="col-sm-5 offset-sm-1">
+                    <button type="submit" class="col-md-8 btn btn-md btn-amber black-text">Add coin</button>
+                </div>
+                <!-- cancel button -->
+                <div class="col-sm-5 mt-2 mt-sm-0">
+                    <button type="reset" class="col-md-8 btn btn-md btn-amber black-text">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

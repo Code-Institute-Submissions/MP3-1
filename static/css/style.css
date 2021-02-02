@@ -101,3 +101,9 @@ form a{
         left: 1.5em;
     }
 }
+
+/* add new coin */
+
+.md-form .validate{
+    margin-bottom: inherit;
+}

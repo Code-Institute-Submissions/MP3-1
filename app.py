@@ -119,6 +119,11 @@ def catalog():
     return render_template("catalog.html", coins=coins)
 
 
+@app.route("/new_coin")
+def new_coin():
+    return render_template("new_coin.html")
+
+
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
