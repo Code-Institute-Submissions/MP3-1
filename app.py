@@ -148,6 +148,24 @@ def new_coin():
 # Edit Coin route
 @app.route("/edit_coin/<id>", methods=["GET", "POST"])
 def edit_coin(id):
+    if request.method == "POST":
+        coin_edit = {
+            "name": request.form.get("name"),
+            "type": request.form.get("type"),
+            "weight": request.form.get("weight"),
+            "mint": request.form.get("mint"),
+            "country": request.form.get("country"),
+            "purity": request.form.get("purity"),
+            "year": request.form.get("year"),
+            "description": request.form.get("description"),
+            "image": request.form.get("image"),
+            "timestamp": datetime.now(),
+            "created_by": session["user_email"]
+        }
+        # update coin in to db
+        mongo.db.coins.update({"_id": ObjectId(id)}, coin_edit)
+        flash("Coin details updated")
+        return redirect(url_for("catalog"))
     coin = mongo.db.coins.find_one({"_id": ObjectId(id)})
     type = mongo.db.coin_type.find().sort("type", 1)
     return render_template("edit_coin.html", coin=coin, type=type)
