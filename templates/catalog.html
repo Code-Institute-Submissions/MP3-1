@@ -2,10 +2,14 @@
 {% block content %}
 
 <h1 class="sr-only">Catalog</h1>
+<div class="card offset elegant-color rounded pt-3 mb-3">
+    <h4 class="amber-text text-center text-uppercase mb-0">Coins catalog</h4>
+    <hr class="hr-light mx-4 mx-md-5">
+</div>
 <!-- loop through a coins table and extract a data -->
 {% for coin in coins %}
     <div class="row offset">
-        <div class="card col mb-4">
+        <div class="col card bg-transparent">
             <div class="row row-cols-1 row-cols-lg-2">
                 <!--Card image-->
                 <div class="col img-backgrund">
@@ -62,5 +66,12 @@
             </div>
         </div>
     </div>
+    <div class="row offset mb-4">
+                <div class="col-lg-6"></div>
+                <div class="col btn-group px-0 mx-0" role="group" aria-label="edit and delete buttons">
+                    <a href="#" class="col btn btn-mdb-color mt-0 mx-0">Edit</a>
+                    <a href="#" class="col btn btn-blue-grey mt-0 mx-0">Delete</a>
+                </div>
+            </div>
 {% endfor %}
 {% endblock %}

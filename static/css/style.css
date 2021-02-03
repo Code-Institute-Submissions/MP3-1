@@ -19,6 +19,11 @@ h2{
     text-align: center;
 }
 
+.offset{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 /* navigation */
 
 nav button{
@@ -66,9 +71,8 @@ form a{
 
 /* catalog */
 
-.offset{
-    margin-left: 10%;
-    margin-right: 10%;
+.bg-transparent{
+    background-color: transparent !important;
 }
 
 .img-backgrund{
@@ -92,13 +96,13 @@ form a{
 @media (min-width: 992px){
     .img-backgrund img {
         position: absolute;
+        max-width: 367px;
     }
 }
 
 @media (min-width: 1200px){
     .img-backgrund img {
-        max-width: 395px;
-        left: 1.5em;
+        left: 2.25em;
     }
 }
 

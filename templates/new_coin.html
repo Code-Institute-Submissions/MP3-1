@@ -24,7 +24,7 @@
                         <label for="type" class="col-sm-4 col-form-label">Type</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="type" name="type" required>
-                                <option value="" disabled selected>Coin type</option>
+                                <option disabled selected>Coin type</option>
                                 {% for option in type %}
                                     <option value="{{ option.type }}">{{ option.type }}</option>
                                 {% endfor %}
