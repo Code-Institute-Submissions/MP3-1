@@ -104,22 +104,10 @@ form a{
 
 /* add new coin */
 
-.md-form .validate{
-    margin-bottom: inherit;
-}
-
-.offset label{
-    padding-top: 0.66em;
-}
-
-@media (max-width: 576px){
+@media (max-width: 575px){
     .offset label {
         text-align: center;
     }
-}
-
-.form-control{
-    color: inherit ;
 }
 
 /* I used some of this code for select: https://www.codeseek.co/pudgereyem/material-design-andltselectandgt-element-css-only-PqBxQx */
@@ -133,24 +121,14 @@ select {
     border: none;
 }
 
-option{
-    /* change option colors */
-    background-color: #2e2e2e;
-    color: #FFA000;
-}
-
 /* Use custom arrow */
 .mdl-selectfield select {
     -webkit-appearance: none;
         -moz-appearance: none;
             appearance: none;
-    /* remove border */
-    border: none;
-    border-bottom: 1px solid #ced4da;
 }
 
 .mdl-selectfield {
-    font-family: 'Roboto','Helvetica','Arial',sans-serif;
     position: relative;
 }
 
@@ -165,6 +143,6 @@ option{
     content: '';
     border-left: .25em solid transparent;
     border-right: .25em solid transparent;
-    border-top: 0.375em solid #ffc107;
+    border-top: 0.375em solid #0e0e0e;
     pointer-events: none;
 }
