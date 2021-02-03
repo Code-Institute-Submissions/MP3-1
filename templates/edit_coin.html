@@ -16,7 +16,7 @@
                         <label for="name" class="col-sm-4 col-form-label">Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Coin name" minlength="5"
-                                maxlength="30" required>
+                                maxlength="30" value="{{ coin.name }}" required>
                         </div>
                     </div>
                     <!-- coin type -->
@@ -24,9 +24,13 @@
                         <label for="type" class="col-sm-4 col-form-label">Type</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="type" name="type" required>
-                                <option disabled selected>Coin type</option>
+                                <option disabled>Coin type</option>
                                 {% for option in type %}
-                                    <option value="{{ option.type }}">{{ option.type }}</option>
+                                    {% if option.type == coin.type %}
+                                        <option value="{{ option.type }}" selected>{{ option.type }}</option>
+                                    {% else %}
+                                        <option value="{{ option.type }}">{{ option.type }}</option>
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                         </div>
@@ -36,7 +40,7 @@
                         <label for="weight" class="col-sm-4 col-form-label">Weight</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" minlength="1"
-                                maxlength="10" required>
+                                maxlength="10" value="{{ coin.weight }}" required>
                         </div>
                     </div>
                     <!-- coin country -->
@@ -44,7 +48,7 @@
                         <label for="country" class="col-sm-4 col-form-label">Country</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="country" name="country" placeholder="Country" minlength="3"
-                                maxlength="50" required>
+                                maxlength="50" value="{{ coin.country }}" required>
                         </div>
                     </div>
                 </div>
@@ -54,7 +58,7 @@
                         <label for="purity" class="col-sm-4 col-form-label">Purity</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="purity" name="purity" placeholder="Purity" minlength="5"
-                                maxlength="20" required>
+                                maxlength="20" value="{{ coin.purity }}" required>
                         </div>
                     </div>
                     <!-- coin mint -->
@@ -62,36 +66,35 @@
                         <label for="mint" class="col-sm-4 col-form-label">Mint</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="mint" name="mint" placeholder="Coin mint" minlength="5"
-                                maxlength="30" required>
+                                maxlength="30" value="{{ coin.mint }}" required>
                         </div>
                     </div>
                     <!-- coin year -->
                     <div class="row my-3">
-                        <label for="mint" class="col-sm-4 col-form-label">Year</label>
+                        <label for="year" class="col-sm-4 col-form-label">Year</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="year" name="year" placeholder="Coin year" minlength="1"
-                                maxlength="4" value="2021" required>
+                                maxlength="4" value="{{ coin.year }}" required>
                         </div>
                     </div>
                     <!-- coin description -->
                     <div class="row my-3">
                         <label for="description" class="col-sm-4 col-form-label">Description</label>
                         <div class="col-sm-8">
-                            <input type="text" class="md-textarea form-control" id="description" name="description"
-                                placeholder="Description" minlength="5" maxlength="80" required>
+                            <input type="text" class="form-control" id="description" name="description"
+                                placeholder="Description" minlength="5" maxlength="80" value="{{ coin.description }}" required>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    
                     <!-- coin image -->
                     <div class="row my-3">
                         <label for="image" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Image</label>
                         <div class="col-sm-8 col-md-9 col-lg-10">
                             <input type="url" class="form-control" id="image" name="image" placeholder="Image" data-toggle="tooltip" data-placement="bottom"
-                                title="PLEASE INSERT URL LINK" required>
+                                title="PLEASE INSERT URL LINK" value="{{ coin.image }}" required>
                             <small id="passwordHelpInline" class="text-muted">PLEASE INSERT URL LINK</small>
                         </div>
                     </div>
