@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="sr-only">Edit coin</h1>
+<div class="row no-gutters">
+    <!-- Card from: https://mdbootstrap.com/docs/b4/jquery/forms/inputs/-->
+    <form class="card col offset"  method="POST" action="{{ url_for('edit_coin', id=coin._id) }}">
+        <div class="card-body elegant-color amber-text rounded">
+            <!-- title -->
+            <h4 class="card-title text-center text-uppercase">Edit coin</h4>
+            <hr class="hr-light mb-3 mb-sm-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- coin name -->
+                    <div class="row my-3">
+                        <label for="name" class="col-sm-4 col-form-label">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Coin name" minlength="5"
+                                maxlength="30" required>
+                        </div>
+                    </div>
+                    <!-- coin type -->
+                    <div class="row my-3 mdl-selectfield">
+                        <label for="type" class="col-sm-4 col-form-label">Type</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="type" name="type" required>
+                                <option disabled selected>Coin type</option>
+                                {% for option in type %}
+                                    <option value="{{ option.type }}">{{ option.type }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!-- coin weight -->
+                    <div class="row my-3">
+                        <label for="weight" class="col-sm-4 col-form-label">Weight</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" minlength="1"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+                    <!-- coin country -->
+                    <div class="row my-3">
+                        <label for="country" class="col-sm-4 col-form-label">Country</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" minlength="3"
+                                maxlength="50" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- coin purity -->
+                    <div class="row my-3">
+                        <label for="purity" class="col-sm-4 col-form-label">Purity</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="purity" name="purity" placeholder="Purity" minlength="5"
+                                maxlength="20" required>
+                        </div>
+                    </div>
+                    <!-- coin mint -->
+                    <div class="row my-3">
+                        <label for="mint" class="col-sm-4 col-form-label">Mint</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="mint" name="mint" placeholder="Coin mint" minlength="5"
+                                maxlength="30" required>
+                        </div>
+                    </div>
+                    <!-- coin year -->
+                    <div class="row my-3">
+                        <label for="mint" class="col-sm-4 col-form-label">Year</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="year" name="year" placeholder="Coin year" minlength="1"
+                                maxlength="4" value="2021" required>
+                        </div>
+                    </div>
+                    <!-- coin description -->
+                    <div class="row my-3">
+                        <label for="description" class="col-sm-4 col-form-label">Description</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="md-textarea form-control" id="description" name="description"
+                                placeholder="Description" minlength="5" maxlength="80" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    
+                    <!-- coin image -->
+                    <div class="row my-3">
+                        <label for="image" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Image</label>
+                        <div class="col-sm-8 col-md-9 col-lg-10">
+                            <input type="url" class="form-control" id="image" name="image" placeholder="Image" data-toggle="tooltip" data-placement="bottom"
+                                title="PLEASE INSERT URL LINK" required>
+                            <small id="passwordHelpInline" class="text-muted">PLEASE INSERT URL LINK</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- buttons -->
+            <div class="row my-3">
+                <!-- submit button -->
+                <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-3 col-lg-4 offset-lg-3 pr-md-0">
+                    <button type="submit" class="col-md-8 btn btn-md btn-amber black-text">Edit coin</button>
+                </div>
+                <!-- cancel button -->
+                <div class="col-sm-5 mt-2 mt-sm-0 col-md-4 col-lg-4 pr-md-0">
+                    <a href="{{ url_for('catalog') }}">
+                        <button type="button" class="col-md-8 btn btn-md btn-amber black-text">Cancel</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

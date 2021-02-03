@@ -145,6 +145,14 @@ def new_coin():
     return render_template("new_coin.html", type=type)
 
 
+# Edit Coin route
+@app.route("/edit_coin/<id>", methods=["GET", "POST"])
+def edit_coin(id):
+    coin = mongo.db.coins.find_one({"_id": ObjectId(id)})
+    type = mongo.db.coin_type.find().sort("type", 1)
+    return render_template("edit_coin.html", coin=coin, type=type)
+
+
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
