@@ -75,7 +75,8 @@ def login():
                 session["user_email"] = request.form.get("email").lower()
                 # return first name and surname
                 flash("Welcome, {0} {1}".format(
-                    existing_user["first_name"], existing_user["last_name"]))
+                    existing_user["first_name"].capitalize(),
+                    existing_user["last_name"].capitalize()))
                 return redirect(url_for(
                     "profile", user_email=session["user_email"]))
             else:
@@ -119,8 +120,27 @@ def catalog():
     return render_template("catalog.html", coins=coins)
 
 
-@app.route("/new_coin")
+# New Coin route
+@app.route("/new_coin", methods=["GET", "POST"])
 def new_coin():
+    if request.method == "POST":
+        coin = {
+            "name": request.form.get("name"),
+            "type": request.form.get("type"),
+            "weight": request.form.get("weight"),
+            "mint": request.form.get("mint"),
+            "country": request.form.get("country"),
+            "purity": request.form.get("purity"),
+            "year": request.form.get("year"),
+            "description": request.form.get("description"),
+            "image": request.form.get("image"),
+            "timestamp": datetime.now(),
+            "created_by": session["user_email"]
+        }
+        # insert new coin in to db
+        mongo.db.coins.insert_one(coin)
+        flash("New coin added into database")
+        return redirect(url_for("catalog"))
     type = mongo.db.coin_type.find().sort("type", 1)
     return render_template("new_coin.html", type=type)
 
@@ -128,5 +148,4 @@ def new_coin():
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+            port=int(os.environ.get("PORT")))

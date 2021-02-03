@@ -4,7 +4,7 @@
 <h1 class="sr-only">Add new coin</h1>
 <div class="row no-gutters">
     <!-- Card from: https://mdbootstrap.com/docs/b4/jquery/forms/inputs/-->
-    <form class="card col offset"  method="POST" action="">
+    <form class="card col offset"  method="POST" action="{{ url_for('new_coin') }}">
         <div class="card-body elegant-color amber-text rounded">
             <!-- title -->
             <h4 class="card-title text-center text-uppercase">Add new coin</h4>
@@ -16,7 +16,7 @@
                         <label for="name" class="col-sm-4 col-form-label">Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Coin name" minlength="5"
-                                maxlength="30" pattern="^[a-zA-Z0-9,.]{5,20}$" required>
+                                maxlength="30" required>
                         </div>
                     </div>
                     <!-- coin type -->
@@ -35,25 +35,26 @@
                     <div class="row my-3">
                         <label for="weight" class="col-sm-4 col-form-label">Weight</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" minlength="5"
-                                maxlength="30" pattern="^[a-zA-Z0-9,.]{5,20}$" required>
+                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" minlength="1"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+                    <!-- coin country -->
+                    <div class="row my-3">
+                        <label for="country" class="col-sm-4 col-form-label">Country</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" minlength="3"
+                                maxlength="50" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="row my-3">
-                        <label for="country" class="col-sm-4 col-form-label">Country</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" minlength="5"
-                                maxlength="30" pattern="^[a-zA-Z0-9,.]{5,20}$" required>
-                        </div>
-                    </div>
                     <!-- coin purity -->
                     <div class="row my-3">
                         <label for="purity" class="col-sm-4 col-form-label">Purity</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="purity" name="purity" placeholder="Purity" minlength="5"
-                                maxlength="30" pattern="^[a-zA-Z0-9,.]{5,20}$" required>
+                                maxlength="20" required>
                         </div>
                     </div>
                     <!-- coin mint -->
@@ -61,21 +62,30 @@
                         <label for="mint" class="col-sm-4 col-form-label">Mint</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="mint" name="mint" placeholder="Coin mint" minlength="5"
-                                maxlength="30" pattern="^[a-zA-Z0-9,.]{5,20}$" required>
+                                maxlength="30" required>
+                        </div>
+                    </div>
+                    <!-- coin year -->
+                    <div class="row my-3">
+                        <label for="mint" class="col-sm-4 col-form-label">Year</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="year" name="year" placeholder="Coin year" minlength="1"
+                                maxlength="4" value="2021" required>
+                        </div>
+                    </div>
+                    <!-- coin description -->
+                    <div class="row my-3">
+                        <label for="description" class="col-sm-4 col-form-label">Description</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="md-textarea form-control" id="description" name="description"
+                                placeholder="Description" minlength="5" maxlength="80" required>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                <!-- coin description -->
-                    <div class="row my-3">
-                        <label for="description" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Description</label>
-                        <div class="col-sm-8 col-md-9 col-lg-10">
-                            <input type="text" class="md-textarea form-control" id="description" name="description"
-                                placeholder="Description" minlength="5" maxlength="30" pattern="^[a-zA-Z0-9,.]{5,20}$" required>
-                        </div>
-                    </div>
+                    
                     <!-- coin image -->
                     <div class="row my-3">
                         <label for="image" class="col-sm-4 col-md-3 col-lg-2 col-form-label">Image</label>
