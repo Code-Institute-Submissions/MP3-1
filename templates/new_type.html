@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="sr-only">Add new type</h1>
+<div class="row no-gutters">
+    <!-- Card from: https://mdbootstrap.com/docs/b4/jquery/forms/inputs/-->
+    <form class="card col offset"  method="POST" action="{{ url_for('new_type') }}">
+        <div class="card-body elegant-color amber-text rounded">
+            <!-- title -->
+            <h4 class="card-title text-center text-uppercase">Add new coin type</h4>
+            <hr class="hr-light mb-3 mb-sm-5">
+            <div class="row">
+                <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                    <!-- type -->
+                    <div class="row my-3 mx-sm-3 ml-md-5">
+                        <label for="type" class="col-sm-3 col-form-label text-center">Type</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="type" name="type" minlength="2" maxlength="15" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- buttons -->
+            <div class="row my-3">
+                <!-- submit button -->
+                <div class="col-sm-5 offset-sm-1 col-md-4 offset-md-3 col-lg-4 offset-lg-3 pr-md-0">
+                    <button type="submit" class="col-md-8 btn btn-md btn-amber black-text">Add type</button>
+                </div>
+                <!-- cancel button -->
+                <div class="col-sm-5 mt-2 mt-sm-0 col-md-4 col-lg-4 pr-md-0">
+                    <button type="reset" class="col-md-8 btn btn-md btn-amber black-text">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

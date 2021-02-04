@@ -7,13 +7,13 @@
     <hr class="hr-light mx-4 mx-md-5">
 </div>
 {% for type in types %}
-    <div class="card offset">
+    <div class="card offset mb-3">
         <!-- Card content -->
-        <div class="card-body elegant-color white-text rounded">
-            <h4 class="card-title">{{ type.type }}</h4>
+        <div class="card-body elegant-color white-text  text-center rounded">
+            <h4 class="card-title amber-text">{{ type.type }}</h4>
             <hr class="hr-light">
-            <p class="card-text white-text mb-4">{{ session.user_email }}</p>
-            <p>{{ session.user_email }}</p>
+            <p class="card-text white-text mb-4">EDIT</p>
+            <p>DELETE</p>
         </div>
     </div>
 {% endfor %}

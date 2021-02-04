@@ -34,6 +34,10 @@ nav a:hover{
     color: #FFA000 !important;
 }
 
+nav ul div a:hover{
+    color: #9933CC !important;
+}
+
 .nav-link{
     text-align: center;
 }

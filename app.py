@@ -199,7 +199,24 @@ def coin_types():
     return redirect(url_for("home"))
 
 
+# Add Type route
+@app.route("/new_type", methods=["GET", "POST"])
+def new_type():
+    if 'user_email' in session:
+        if session['user_email'] == "admin@coinscatalog.info":
+            if request.method == "POST":
+                type = {
+                    "type": request.form.get("type")
+                }
+                mongo.db.coin_type.insert_one(type)
+                flash("New type added")
+                return redirect(url_for("coin_types"))
+            return render_template("new_type.html")
+    return redirect(url_for("home"))
+
+
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")))
+            port=int(os.environ.get("PORT")),
+            debug=True)

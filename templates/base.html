@@ -42,7 +42,8 @@
                                 <button class="btn btn-mdb-color btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">ADMIN OPTIONS</button>
                                     <div class="dropdown-menu bg-dark pb-0">
-                                        <a class="nav-link dropdown-item bg-secondary" href="{{ url_for('coin_types') }}">Manage Types</a>
+                                        <a class="nav-link dropdown-item bg-dark" href="{{ url_for('coin_types') }}">Coin Types</a>
+                                        <a class="nav-link dropdown-item bg-dark" href="{{ url_for('new_type') }}">Add Type</a>
                                     </div>
                                 </div>
                             {% endif %}
