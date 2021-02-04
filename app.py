@@ -171,6 +171,13 @@ def edit_coin(id):
     return render_template("edit_coin.html", coin=coin, type=type)
 
 
+@app.route("/delete_coin/<id>")
+def delete_coin(id):
+    mongo.db.coins.remove({"_id": ObjectId(id)})
+    flash("Coin deleted")
+    return redirect(url_for("catalog"))
+
+
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
