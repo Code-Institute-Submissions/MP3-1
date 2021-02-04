@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="sr-only">Coin types</h1>
+<div class="card offset elegant-color rounded pt-3 mb-3">
+    <h4 class="amber-text text-center text-uppercase mb-0">Coin types</h4>
+    <hr class="hr-light mx-4 mx-md-5">
+</div>
+{% for type in types %}
+    <div class="card offset">
+        <!-- Card content -->
+        <div class="card-body elegant-color white-text rounded">
+            <h4 class="card-title">{{ type.type }}</h4>
+            <hr class="hr-light">
+            <p class="card-text white-text mb-4">{{ session.user_email }}</p>
+            <p>{{ session.user_email }}</p>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

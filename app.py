@@ -31,6 +31,11 @@ def home():
     return render_template("home.html", coins=coins)
 
 
+"""
+Register, Login, Profile, Logout functionality
+"""
+
+
 # Register route
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -113,6 +118,11 @@ def logout():
     return redirect(url_for("login"))
 
 
+"""
+Catalog, New Coin, Edit Coin, Delete Coin functionality
+"""
+
+
 # Catalog route
 @app.route("/catalog")
 def catalog():
@@ -171,11 +181,22 @@ def edit_coin(id):
     return render_template("edit_coin.html", coin=coin, type=type)
 
 
+# Delete Coin route
 @app.route("/delete_coin/<id>")
 def delete_coin(id):
     mongo.db.coins.remove({"_id": ObjectId(id)})
     flash("Coin deleted")
     return redirect(url_for("catalog"))
+
+
+# Coin Type route
+@app.route("/coin_types")
+def coin_types():
+    if 'user_email' in session:
+        if session['user_email'] == "admin@coinscatalog.info":
+            types = list(mongo.db.coin_type.find().sort("type", 1))
+            return render_template("types.html", types=types)
+    return redirect(url_for("home"))
 
 
 # Environment variables
