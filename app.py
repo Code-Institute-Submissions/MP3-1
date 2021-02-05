@@ -99,14 +99,17 @@ def login():
 # Profile route
 @app.route("/profile/<user_email>", methods=["GET", "POST"])
 def profile(user_email):
-    # grab all users list & the session user's email from db
-    users = list(mongo.db.users.find())
-    email = mongo.db.users.find_one(
-         {"email": session["user_email"]})["email"]
-    # check if session email exist
-    if session["user_email"]:
-        return render_template("profile.html", user_email=email, users=users)
-    return redirect(url_for("login"))
+    if 'user_email' in session:
+        # grab all users list & the session user's email from db
+        users = list(mongo.db.users.find())
+        email = mongo.db.users.find_one(
+            {"email": session["user_email"]})["email"]
+        # check if session email exist
+        if session["user_email"]:
+            return render_template(
+                "profile.html", user_email=email, users=users)
+        return redirect(url_for("login"))
+    return redirect(url_for("home"))
 
 
 # Logout route
@@ -133,52 +136,56 @@ def catalog():
 # New Coin route
 @app.route("/new_coin", methods=["GET", "POST"])
 def new_coin():
-    if request.method == "POST":
-        coin = {
-            "name": request.form.get("name"),
-            "type": request.form.get("type"),
-            "weight": request.form.get("weight"),
-            "mint": request.form.get("mint"),
-            "country": request.form.get("country"),
-            "purity": request.form.get("purity"),
-            "year": request.form.get("year"),
-            "description": request.form.get("description"),
-            "image": request.form.get("image"),
-            "timestamp": datetime.now(),
-            "created_by": session["user_email"]
-        }
-        # insert new coin in to db
-        mongo.db.coins.insert_one(coin)
-        flash("New coin added into database")
-        return redirect(url_for("catalog"))
-    type = mongo.db.coin_type.find().sort("type", 1)
-    return render_template("new_coin.html", type=type)
+    if 'user_email' in session:
+        if request.method == "POST":
+            coin = {
+                "name": request.form.get("name"),
+                "type": request.form.get("type"),
+                "weight": request.form.get("weight"),
+                "mint": request.form.get("mint"),
+                "country": request.form.get("country"),
+                "purity": request.form.get("purity"),
+                "year": request.form.get("year"),
+                "description": request.form.get("description"),
+                "image": request.form.get("image"),
+                "timestamp": datetime.now(),
+                "created_by": session["user_email"]
+            }
+            # insert new coin in to db
+            mongo.db.coins.insert_one(coin)
+            flash("New coin added into database")
+            return redirect(url_for("catalog"))
+        type = mongo.db.coin_type.find().sort("type", 1)
+        return render_template("new_coin.html", type=type)
+    return redirect(url_for("home"))
 
 
 # Edit Coin route
 @app.route("/edit_coin/<id>", methods=["GET", "POST"])
 def edit_coin(id):
-    if request.method == "POST":
-        coin_edit = {
-            "name": request.form.get("name"),
-            "type": request.form.get("type"),
-            "weight": request.form.get("weight"),
-            "mint": request.form.get("mint"),
-            "country": request.form.get("country"),
-            "purity": request.form.get("purity"),
-            "year": request.form.get("year"),
-            "description": request.form.get("description"),
-            "image": request.form.get("image"),
-            "timestamp": datetime.now(),
-            "created_by": session["user_email"]
-        }
-        # update coin in to db
-        mongo.db.coins.update({"_id": ObjectId(id)}, coin_edit)
-        flash("Coin details updated")
-        return redirect(url_for("catalog"))
-    coin = mongo.db.coins.find_one({"_id": ObjectId(id)})
-    type = mongo.db.coin_type.find().sort("type", 1)
-    return render_template("edit_coin.html", coin=coin, type=type)
+    if 'user_email' in session:
+        if request.method == "POST":
+            coin_edit = {
+                "name": request.form.get("name"),
+                "type": request.form.get("type"),
+                "weight": request.form.get("weight"),
+                "mint": request.form.get("mint"),
+                "country": request.form.get("country"),
+                "purity": request.form.get("purity"),
+                "year": request.form.get("year"),
+                "description": request.form.get("description"),
+                "image": request.form.get("image"),
+                "timestamp": datetime.now(),
+                "created_by": session["user_email"]
+            }
+            # update coin in to db
+            mongo.db.coins.update({"_id": ObjectId(id)}, coin_edit)
+            flash("Coin details updated")
+            return redirect(url_for("catalog"))
+        coin = mongo.db.coins.find_one({"_id": ObjectId(id)})
+        type = mongo.db.coin_type.find().sort("type", 1)
+        return render_template("edit_coin.html", coin=coin, type=type)
+    return redirect(url_for("home"))
 
 
 # Delete Coin route

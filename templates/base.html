@@ -32,8 +32,8 @@
                     <ul class="navbar-nav ml-auto ">
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
                         {% if session.user_email %}
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('new_coin') }}">Add New</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url_for('catalog') }}">Catalog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('new_coin') }}">New Coin</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', user_email=session['user_email']) }}">Profile</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>
                             {% if session.user_email|lower == "admin@coinscatalog.info"|lower %}
@@ -43,7 +43,7 @@
                                     aria-haspopup="true" aria-expanded="false">ADMIN OPTIONS</button>
                                     <div class="dropdown-menu bg-dark pb-0">
                                         <a class="nav-link dropdown-item bg-dark" href="{{ url_for('types') }}">Coin Types</a>
-                                        <a class="nav-link dropdown-item bg-dark" href="{{ url_for('new_type') }}">Add Type</a>
+                                        <a class="nav-link dropdown-item bg-dark" href="{{ url_for('new_type') }}">Add new Type</a>
                                     </div>
                                 </div>
                             {% endif %}
