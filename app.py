@@ -196,6 +196,11 @@ def delete_coin(id):
     return redirect(url_for("catalog"))
 
 
+"""
+Types, Add Type, Edit Type, Delete Type functionality
+"""
+
+
 # Types route
 @app.route("/types")
 def types():
@@ -223,6 +228,7 @@ def new_type():
     return redirect(url_for("home"))
 
 
+# Edit Type route
 @app.route("/edit_type/<id>", methods=["GET", "POST"])
 def edit_type(id):
     if 'user_email' in session:
@@ -241,8 +247,15 @@ def edit_type(id):
     return redirect(url_for("home"))
 
 
+# Delete Type route
+@app.route("/delete_type/<id>")
+def delete_type(id):
+    mongo.db.coin_type.remove({"_id": ObjectId(id)})
+    flash("Coin type deleted")
+    return redirect(url_for("types"))
+
+
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+            port=int(os.environ.get("PORT")))

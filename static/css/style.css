@@ -35,7 +35,7 @@ nav a:hover{
 }
 
 nav ul div a:hover{
-    color: #9933CC !important;
+    color: #1d6df1 !important;
 }
 
 .nav-link{
@@ -51,6 +51,12 @@ footer a{
 
 .flashes h4 {
     line-height: 2;
+}
+
+/* modal */
+
+.modal-dialog.modal-notify.modal-info .modal-header {
+    background-color: #78909c;
 }
 
 /* register form */
