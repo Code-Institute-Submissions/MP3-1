@@ -1,7 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
     
-    <h1 class="sr-only">Home - search screen</h1>
-    <h2>discover world's most popular coins</h2>
-
+<h1 class="sr-only">Home - search screen</h1>
+<h2>discover world's most popular coins</h2>
+<!-- search bar -->
+<form class="col-8 offset-2 mr-auto mb-4 form-inline md-form bg-dark" action="{{ url_for('search') }}" method="POST">
+    <input class="col-8 mx-sm-5 form-control amber-text " type="text" name="query" id="query" minlenght="3" placeholder="Search" required aria-label="Search">
+    <button class="btn btn-elegant btn-rounded btn-sm my-0" type="submit">Search</button>
+</form>
+<!-- search results -->
+<div class="card-deck">
+    {% for coin in coins %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-4 black">
+                <div class="avatar mx-auto black" style="height: 15rem;">
+                    <img class="my-lg-auto rounded-circle" style="width: 15rem;" src="{{ coin.image }}" alt="{{ coin.name }}">
+                </div>
+                <div class="card-body white">
+                    <h4 class="card-title">{{ coin.description }}</h4>
+                    <hr>
+                    <div class="card-text mb-4"><i class="fas fa-coins fa-2x black-text"></i> If you don't have an account please
+                        <a href="{{ url_for('register') }}">Register</a> today.
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

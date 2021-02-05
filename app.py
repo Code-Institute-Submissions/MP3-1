@@ -31,6 +31,14 @@ def home():
     return render_template("home.html", coins=coins)
 
 
+# Search route
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    coins = list(mongo.db.coins.find({"$text": {"$search": query}}))
+    return render_template("home.html", coins=coins)
+
+
 """
 Register, Login, Profile, Logout functionality
 """
