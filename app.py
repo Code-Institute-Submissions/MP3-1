@@ -189,9 +189,9 @@ def delete_coin(id):
     return redirect(url_for("catalog"))
 
 
-# Coin Type route
-@app.route("/coin_types")
-def coin_types():
+# Types route
+@app.route("/types")
+def types():
     if 'user_email' in session:
         if session['user_email'] == "admin@coinscatalog.info":
             types = list(mongo.db.coin_type.find().sort("type", 1))
@@ -208,10 +208,29 @@ def new_type():
                 type = {
                     "type": request.form.get("type")
                 }
+                # insert new type in to db
                 mongo.db.coin_type.insert_one(type)
                 flash("New type added")
-                return redirect(url_for("coin_types"))
+                return redirect(url_for("types"))
             return render_template("new_type.html")
+    return redirect(url_for("home"))
+
+
+@app.route("/edit_type/<id>", methods=["GET", "POST"])
+def edit_type(id):
+    if 'user_email' in session:
+        if session['user_email'] == "admin@coinscatalog.info":
+            if request.method == "POST":
+                type_edit = {
+                    "type": request.form.get("type")
+                    }
+                # update type in to db
+                mongo.db.coin_type.update({"_id": ObjectId(id)}, type_edit)
+                flash("Type details updated")
+                return redirect(url_for("types"))
+
+            type = mongo.db.coin_type.find_one({"_id": ObjectId(id)})
+            return render_template("edit_type.html", type=type)
     return redirect(url_for("home"))
 
 

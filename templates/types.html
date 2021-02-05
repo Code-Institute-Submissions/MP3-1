@@ -2,19 +2,25 @@
 {% block content %}
 
 <h1 class="sr-only">Coin types</h1>
-<div class="card offset elegant-color rounded pt-3 mb-3">
+<div class="card offset elegant-color rounded pt-3 mb-4">
     <h4 class="amber-text text-center text-uppercase mb-0">Coin types</h4>
     <hr class="hr-light mx-4 mx-md-5">
 </div>
+<div class="row mb-3">
 {% for type in types %}
-    <div class="card offset mb-3">
+<div class="col-md-6 mb-3 offset">
+    <div class="card ">
         <!-- Card content -->
         <div class="card-body elegant-color white-text  text-center rounded">
             <h4 class="card-title amber-text">{{ type.type }}</h4>
             <hr class="hr-light">
-            <p class="card-text white-text mb-4">EDIT</p>
-            <p>DELETE</p>
+            <p class="card-text white-text mb-4">
+                <a class="btn bg-dark" href="{{ url_for('edit_type', id=type._id) }}">Edit Type</a>
+                Delete
+            </p>
         </div>
     </div>
+</div>
 {% endfor %}
+</div>
 {% endblock %}
