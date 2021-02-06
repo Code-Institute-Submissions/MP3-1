@@ -109,13 +109,14 @@ def login():
 def profile(user_email):
     if 'user_email' in session:
         # grab all users list & the session user's email from db
+        coins = list(mongo.db.coins.find())
         users = list(mongo.db.users.find())
         email = mongo.db.users.find_one(
             {"email": session["user_email"]})["email"]
         # check if session email exist
         if session["user_email"]:
             return render_template(
-                "profile.html", user_email=email, users=users)
+                "profile.html", user_email=email, users=users, coins=coins)
         return redirect(url_for("login"))
     return redirect(url_for("home"))
 
