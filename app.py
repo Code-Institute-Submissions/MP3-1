@@ -189,8 +189,9 @@ def edit_coin(id):
             }
             # update coin in to db
             mongo.db.coins.update({"_id": ObjectId(id)}, coin_edit)
+            email = session['user_email']
             flash("Coin details updated")
-            return redirect(url_for("catalog"))
+            return redirect(url_for("profile", user_email=email))
         coin = mongo.db.coins.find_one({"_id": ObjectId(id)})
         type = mongo.db.coin_type.find().sort("type", 1)
         return render_template("edit_coin.html", coin=coin, type=type)

@@ -108,7 +108,7 @@
                 </div>
                 <!-- cancel button -->
                 <div class="col-sm-5 mt-2 mt-sm-0 col-md-4 col-lg-4 pr-md-0">
-                    <a href="{{ url_for('catalog') }}">
+                    <a href="{{ url_for('profile', user_email=session['user_email']) }}">
                         <button type="button" class="col-md-8 btn btn-md btn-amber black-text">Cancel</button>
                     </a>
                 </div>
