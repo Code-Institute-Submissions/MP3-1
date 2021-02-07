@@ -49,40 +49,101 @@
                         <hr class="hr-light mt-4">
                         <h4 class="card-title text-uppercase">Your coins:</h4>
                         <a href="{{ url_for('new_coin') }}" class="btn btn-grey mt-0 mx-0">Add New Coin</a>
-                        <button type="button" class="btn btn-grey mt-0 mx-0" id="show_coins_btn">Show coins</button>
+                        <a type="button" class="btn btn-grey mt-0 mx-0" id="show_coins_btn" href="#user_coins">Show
+                            coins</a>
                         <button type="button" class="btn btn-grey mt-0 mx-0" id="hide_coins_btn">Hide coins</button>
                         <hr class="hr-light">
                         <div class="card-deck no-gutters" id="user_coins">
+                            <!-- loop through a coins table and extract a data for user in session-->
                             {% for coin in coins %}
                             {% if (session.user_email|lower == coin.created_by|lower) %}
-                                <div class="col-md-6">
-                                    <div class="card mb-4 black">
-                                        <div class="avatar mx-auto black" style="height: 15rem">
-                                            <img class="my-lg-auto rounded-circle" style="width: 15rem" src="{{ coin.image }}" alt="{{ coin.name }}">
+                            <div class="col-md-6">
+                                <div class="card mb-4 black">
+                                    <div class="avatar mx-auto black" style="height: 15rem">
+                                        <img class="my-lg-auto rounded-circle" style="width: 15rem" src="{{ coin.image }}" alt="{{ coin.name }}">
+                                    </div>
+                                    <div class="card-body grey darken-4">
+                                        <!-- display description -->
+                                        <a id="{{ loop.index }}" class="coin_link">
+                                            <h4 class="card-title mb-0" style="height:4rem" data-toggle="tooltip" data-placement="bottom"
+                                                title="Click here to view more details" required>{{ coin.description }}</h4>
+                                        </a>
+                                        <hr class="hr-light">
+                                        <!-- display other details when user decide to show them-->
+                                        <div class="row col-form-label" id="coin_details{{ loop.index }}">
+                                            <div class="col-5">
+                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Name:</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>{{ coin.name }}</p>
+                                            </div>
+                                            <div class="col-5">
+                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Type:</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>{{ coin.type }}</p>
+                                            </div>
+                                            <div class="col-5">
+                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Weight:</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>{{ coin.weight }}</p>
+                                            </div>
+                                            <div class="col-5">
+                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Mint:</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>{{ coin.mint }}</p>
+                                            </div>
+                                            <div class="col-5">
+                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Country:</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>{{ coin.country }}</p>
+                                            </div>
+                                            <div class="col-5">
+                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Purity:</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>{{ coin.purity }}</p>
+                                            </div>
+                                            <div class="col-5">
+                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Year:</p>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>{{ coin.year }}</p>
+                                            </div>
                                         </div>
-                                        <div class="card-body grey darken-4">
-                                            <h4 class="card-title" style="height:4rem">{{ coin.description }}</h4>
-                                            <hr>
-                                            <div class="row mx-2 mb-3">
-                                                <div class="col btn-group px-0 mx-0" role="group" aria-label="edit and delete buttons">
-                                                    <a href="{{ url_for('edit_coin', id=coin._id) }}" class="col btn btn-mdb-color mt-0 mx-0">Edit</a>
-                                                    <button type="button" class="col btn btn-blue-grey mt-0 mx-0" data-toggle="modal" data-target="#modal{{coin._id}}">Delete</button>
-                                                    <div class="modal modal-notify fade mt-5" id="modal{{coin._id}}" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
-                                                        <div class="modal-dialog modal-sm modal-notify modal-info mt-5" role="document">
-                                                            <div class="modal-content bg-light text-center">
-                                                                <div class="modal-header justify-content-center">
-                                                                    <p class="heading">Do you realy want to delete?</p>
-                                                                </div>
-                                                                <div class="mt-3 justify-content-center">
-                                                                    <p class="heading text-dark"> {{ coin.description }} </p>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <i class="fas fa-times fa-4x animated rotateIn blue-grey-text"></i>
-                                                                </div>
-                                                                <div class="modal-footer flex-center">
-                                                                    <a href="{{ url_for('delete_coin', id=coin._id) }}" class="btn btn-outline-blue-grey bg-primary text-warning waves-effect">Yes</a>
-                                                                    <a type="button" class="btn btn btn-blue-grey waves-effect" data-dismiss="modal">No</a>
-                                                                </div>
+                                        <div class="row mx-2 mb-3">
+                                            <div class="col btn-group px-0 mx-0" role="group"
+                                                aria-label="edit and delete buttons">
+                                                <a href="{{ url_for('edit_coin', id=coin._id) }}"
+                                                    class="col btn btn-mdb-color mt-0 mx-0">Edit</a>
+                                                <button type="button" class="col btn btn-blue-grey mt-0 mx-0"
+                                                    data-toggle="modal" data-target="#modal{{coin._id}}">Delete</button>
+                                                <div class="modal modal-notify fade mt-5" id="modal{{coin._id}}"
+                                                    tabindex="-1" role="dialog" aria-labelledby="delete-modal"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-sm modal-notify modal-info mt-5"
+                                                        role="document">
+                                                        <div class="modal-content bg-light text-center">
+                                                            <div class="modal-header justify-content-center">
+                                                                <p class="heading">Do you realy want to delete?</p>
+                                                            </div>
+                                                            <div class="mt-3 justify-content-center">
+                                                                <p class="heading text-dark"> {{ coin.description }}
+                                                                </p>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <i
+                                                                    class="fas fa-times fa-4x animated rotateIn blue-grey-text"></i>
+                                                            </div>
+                                                            <div class="modal-footer flex-center">
+                                                                <a href="{{ url_for('delete_coin', id=coin._id) }}"
+                                                                    class="btn btn-outline-blue-grey bg-primary text-warning waves-effect">Yes</a>
+                                                                <a type="button"
+                                                                    class="btn btn btn-blue-grey waves-effect"
+                                                                    data-dismiss="modal">No</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -91,6 +152,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             {% endif %}
                             {% endfor %}
                         </div>
