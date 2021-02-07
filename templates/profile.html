@@ -48,10 +48,10 @@
                     <div>
                         <hr class="hr-light mt-4">
                         <h4 class="card-title text-uppercase">Your coins:</h4>
-                        <a href="{{ url_for('new_coin') }}" class="btn btn-grey mt-0 mx-0">Add New Coin</a>
-                        <a type="button" class="btn btn-grey mt-0 mx-0" id="show_coins_btn" href="#user_coins">Show
+                        <a href="{{ url_for('new_coin') }}" class="btn btn-grey col col-md-3 mt-0 mx-0">Add New Coin</a>
+                        <a type="button" class="btn btn-grey col col-md-3 mt-0 mx-0" id="show_coins_btn" href="#user_coins">Show
                             coins</a>
-                        <button type="button" class="btn btn-grey mt-0 mx-0" id="hide_coins_btn">Hide coins</button>
+                        <button type="button" class="btn btn-grey col col-md-3 mt-0 mx-0" id="hide_coins_btn">Hide coins</button>
                         <hr class="hr-light">
                         <div class="card-deck no-gutters" id="user_coins">
                             <!-- loop through a coins table and extract a data for user in session-->
@@ -62,11 +62,11 @@
                                     <div class="avatar mx-auto black" style="height: 15rem">
                                         <img class="my-lg-auto rounded-circle" style="width: 15rem" src="{{ coin.image }}" alt="{{ coin.name }}">
                                     </div>
-                                    <div class="card-body grey darken-4">
+                                    <div class="card-body px-2 grey darken-4">
                                         <!-- display description -->
                                         <a id="{{ loop.index }}" class="coin_link">
-                                            <h4 class="card-title mb-0" style="height:4rem" data-toggle="tooltip" data-placement="bottom"
-                                                title="Click here to view more details" required>{{ coin.description }}</h4>
+                                            <h4 class="card-title mb-0" style="height:4rem" required>{{ coin.description }}</h4>
+                                            <small class="text-muted">Click here to view more details</small>
                                         </a>
                                         <hr class="hr-light">
                                         <!-- display other details when user decide to show them-->
