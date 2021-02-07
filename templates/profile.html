@@ -49,8 +49,8 @@
                         <hr class="hr-light mt-4">
                         <h4 class="card-title text-uppercase">Your coins:</h4>
                         <a href="{{ url_for('new_coin') }}" class="btn btn-grey mt-0 mx-0">Add New Coin</a>
-                        
-                        <button type="button" class="btn btn-grey mt-0 mx-0" id="show_coins">Show coins</button>
+                        <button type="button" class="btn btn-grey mt-0 mx-0" id="show_coins_btn">Show coins</button>
+                        <button type="button" class="btn btn-grey mt-0 mx-0" id="hide_coins_btn">Hide coins</button>
                         <hr class="hr-light">
                         <div class="card-deck no-gutters" id="user_coins">
                             {% for coin in coins %}
