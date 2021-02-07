@@ -6,11 +6,13 @@
 <!-- search bar -->
 <form class="col-8 offset-2 mr-auto mb-4 form-inline md-form bg-dark" action="{{ url_for('search') }}" method="POST">
     <input class="col-8 mx-sm-5 form-control amber-text " type="text" name="query" id="query" minlenght="3" placeholder="Search" required aria-label="Search">
-    <button class="btn btn-elegant btn-rounded btn-sm my-0" type="submit">Search</button>
+    <button class="btn btn-elegant btn-rounded btn-sm my-0" type="submit" id="search_button">Search</button>
 </form>
-<!-- search results -->
-<div class="card-deck">
+
+<!-- search results for last 6 coins -->
+<div class="card-deck" id="search">
     {% for coin in coins %}
+        {% if loop.index0 < 6 %} 
         <div class="col-md-6 col-lg-4">
             <div class="card mb-4 black">
                 <div class="avatar mx-auto black" style="height: 15rem;">
@@ -19,12 +21,43 @@
                 <div class="card-body white">
                     <h4 class="card-title">{{ coin.description }}</h4>
                     <hr>
-                    <div class="card-text mb-4"><i class="fas fa-coins fa-2x black-text"></i> If you don't have an account please
+                    <div class="card-text mb-4"><i class="fas fa-coins fa-2x black-text"></i> {{ loop.index0 }} If you don't have an account please
                         <a href="{{ url_for('register') }}">Register</a> today.
                     </div>
                 </div>
             </div>
         </div>
+        {% endif %}
     {% endfor %}
 </div>
+
+<!-- Welcome screen if not log in -->
+<!-- Template used below from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view -->
+{% if 'user_email' not in session:%}
+<div class="container text-center my-5">
+    <h3 class="font-weight-bold mb-4 pb-2">Latest coins from our users</h3>
+    <p class="w-responsive mx-auto mb-5">Join to our community today!</p>
+    <div class="row">
+       {% for coin in coins %}
+        {% if loop.revindex0 < 3 %} 
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-4 black view overlay z-depth-1">
+                <div class="avatar mx-auto black" style="height: 15rem;">
+                    <img class="my-lg-auto rounded-circle" style="width: 15rem;" src="{{ coin.image }}" alt="{{ coin.name }}">
+                </div>
+                 <div class="mask flex-center rgba-orange-light">
+                    <a class="btn btn-outline-white btn-rounded" href="{{ url_for('register') }}">To see more please Register here</a>
+                </div>
+                <div class="card-body white">
+                    <h4 class="card-title">{{ coin.description }}</h4>
+                    <hr>
+                   
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
 {% endblock %}
