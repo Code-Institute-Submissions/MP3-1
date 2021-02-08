@@ -11,7 +11,8 @@ a{
     color: dimgrey;
 }
 a:hover{
-    color: #FFA000;
+    color: #ffc107;
+    font-weight: 600;
 }
 
 h2{

@@ -33,12 +33,12 @@
 
 <!-- Welcome screen if not log in -->
 <!-- Template used below from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view -->
-<div class="row elegant-color text-white rounded no-gutters p-3 my-1">
+<div class="row elegant-color text-white rounded no-gutters p-3 mb-4">
     <!-- user counter -->
     <div class="col-md-4">
         <div class="row">
             <div class="col-6 pr-0">
-                {% for coin in coins_list %}
+                {% for user in user_list %}
                     {% if loop.last %}
                     <h4 class="display-4 text-right mb-0 count-up" data-from="0" data-to="{{ loop.index }}" data-time="1000">{{ loop.index }}</h4>
                     {% endif %}
@@ -81,12 +81,16 @@
         </div>
     </div>
 </div>
+
 <!-- Welcome screen if not log in -->
 <!-- Template used below from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view -->
 {% if 'user_email' not in session:%}
-<div class="container text-center my-5">
-    <h3 class="font-weight-bold mb-4 pb-2">Latest coins from our users</h3>
-    <p class="w-responsive mx-auto mb-5">Join to our community today!</p>
+<div class="container elegant-color text-white text-center rounded mb-4">
+    <h3 class="font-weight-bold amber-text py-3">Join our community today!</h3>
+    <p class="w-responsive mx-auto mb-2">If you don't have an account please<a href="{{ url_for('register') }}"> Register</a> here.</p>
+    <h4 class="amber-text py-3">Latest coins:</h4>
+    
+    
     <div class="row">
     {% for coin in coins_list %}
         {% if loop.revindex0 < 3 %} 
@@ -99,7 +103,7 @@
                     <a class="btn btn-info btn-rounded" href="{{ url_for('register') }}">To see more please Register here</a>
                 </div>
                 <div class="card-body white">
-                    <h4 class="card-title">{{ coin.description }}</h4>
+                    <h4 class="card-title black-text">{{ coin.description }}</h4>
                     <hr class="my-0">
                 </div>
             </div>
