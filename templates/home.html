@@ -33,12 +33,62 @@
 
 <!-- Welcome screen if not log in -->
 <!-- Template used below from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view -->
+<div class="row elegant-color text-white rounded no-gutters p-3 my-1">
+    <!-- user counter -->
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-6 pr-0">
+                {% for coin in coins_list %}
+                    {% if loop.last %}
+                    <h4 class="display-4 text-right mb-0 count-up" data-from="0" data-to="{{ loop.index }}" data-time="1000">{{ loop.index }}</h4>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-6">
+                <p class="text-uppercase font-weight-normal mb-1">Users</p>
+                <p class="mb-0 pl-3"><i class="fas fa-user fa-2x amber-text mb-0"></i></p>
+            </div>
+        </div>
+    </div>
+    <!-- coins counter -->
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-6 pr-0">
+                {% for coin in coins_list %}
+                    {% if loop.last %}
+                    <h4 class="display-4 text-right mb-0 count1" data-from="0" data-to="{{ loop.index }}" data-time="1000">{{ loop.index }}</h4>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-6">
+                <p class="text-uppercase font-weight-normal mb-1">Coins</p>
+                <p class="mb-0 pl-2"><i class="fas fa-coins fa-2x amber-text mb-0"></i></p>
+            </div>
+        </div>
+    </div>
+    <!-- satisfaction counter -->
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-6 pr-0">
+                <h4 class="display-4 text-right"><span class="d-flex justify-content-end">
+                    <span class="count2" data-from="0" data-to="100" data-time="1000">0</span> %
+                </span></h4>
+            </div>
+            <div class="col-6">
+                <p class="text-uppercase font-weight-normal mb-1">Satisfaction</p>
+                <p class="mb-0 pl-5"><i class="fas fa-smile fa-2x amber-text mb-0"></i></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Welcome screen if not log in -->
+<!-- Template used below from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view -->
 {% if 'user_email' not in session:%}
 <div class="container text-center my-5">
     <h3 class="font-weight-bold mb-4 pb-2">Latest coins from our users</h3>
     <p class="w-responsive mx-auto mb-5">Join to our community today!</p>
     <div class="row">
-       {% for coin in coins %}
+    {% for coin in coins_list %}
         {% if loop.revindex0 < 3 %} 
         <div class="col-md-6 col-lg-4">
             <div class="card mb-4 black view overlay z-depth-1">
@@ -46,12 +96,11 @@
                     <img class="my-lg-auto rounded-circle" style="width: 15rem;" src="{{ coin.image }}" alt="{{ coin.name }}">
                 </div>
                  <div class="mask flex-center rgba-orange-light">
-                    <a class="btn btn-outline-white btn-rounded" href="{{ url_for('register') }}">To see more please Register here</a>
+                    <a class="btn btn-info btn-rounded" href="{{ url_for('register') }}">To see more please Register here</a>
                 </div>
                 <div class="card-body white">
                     <h4 class="card-title">{{ coin.description }}</h4>
-                    <hr>
-                   
+                    <hr class="my-0">
                 </div>
             </div>
         </div>

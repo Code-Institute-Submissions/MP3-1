@@ -28,7 +28,8 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     coins = list(mongo.db.coins.find())
-    return render_template("home.html", coins=coins)
+    users = list(mongo.db.users.find())
+    return render_template("home.html", coins_list=coins, user_list=users)
 
 
 # Search route
@@ -36,7 +37,8 @@ def home():
 def search():
     query = request.form.get("query")
     coins = list(mongo.db.coins.find({"$text": {"$search": query}}))
-    return render_template("home.html", coins=coins)
+    coins_list = list(mongo.db.coins.find())
+    return render_template("home.html", coins=coins, coins_list=coins_list)
 
 
 """
