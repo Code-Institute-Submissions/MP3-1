@@ -38,7 +38,9 @@ def search():
     query = request.form.get("query")
     coins = list(mongo.db.coins.find({"$text": {"$search": query}}))
     coins_list = list(mongo.db.coins.find())
-    return render_template("home.html", coins=coins, coins_list=coins_list)
+    users = list(mongo.db.users.find())
+    return render_template(
+        "home.html", coins=coins, coins_list=coins_list, user_list=users)
 
 
 """
