@@ -8,15 +8,10 @@ body{
 }
 
 a{
-    color: dimgrey;
+    color: #696969;
 }
 a:hover{
     color: #ffc107;
-}
-
-h2{
-    background-color: dimgrey;
-    text-align: center;
 }
 
 .offset{
@@ -41,6 +36,7 @@ nav ul div a:hover{
 .nav-link{
     text-align: center;
 }
+
 /* footer */
 
 footer a{
@@ -51,6 +47,12 @@ footer a{
 
 .flashes h4 {
     line-height: 1.5;
+}
+
+/* search and profile*/
+
+.card-title.fixed-height{
+    height:4rem;
 }
 
 /* search */

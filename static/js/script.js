@@ -8,11 +8,6 @@ $(document).ready(function () {
     $('.count2').counter();
 })
 
-// tooltiop function
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-
  // show user coins in profile page
 $('#show_coins_btn').click(function(){
     $('#show_coins_btn').hide();
@@ -27,12 +22,7 @@ $('#hide_coins_btn').click(function(){
     $('#user_coins').hide(); 
 })
 
-// show coin details
-$('#coin_link').click(function(){
-    $('.coin_details').toggle();
-})
-
-// toggle description on coin card
+// toggle description on coin card (profile page and home page)
 // using jquery with jinja2: https://stackoverflow.com/questions/13423646/using-jquery-with-jinja2-to-provide-onclick-event-inside-a-loop-on-each-element
 $('.coin_link').each(function(){
     var toggle_div_id = 'coin_details' + $(this).attr('id');
@@ -42,6 +32,7 @@ $('.coin_link').each(function(){
     });
 });
 
+// counter on the home page
 // counter from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1363695#js-tab-view
 (function ($){
   $.fn.counter = function() {
