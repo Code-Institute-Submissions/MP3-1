@@ -129,7 +129,7 @@ def profile(user_email):
 @app.route("/logout")
 def logout():
     # remove user from session cookie and redirect to login
-    flash("You have been looged out")
+    flash("You have been logged out")
     session.pop("user_email")
     return redirect(url_for("home"))
 
