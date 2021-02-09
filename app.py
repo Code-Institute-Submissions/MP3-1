@@ -205,9 +205,17 @@ def edit_coin(id):
 # Delete Coin route
 @app.route("/delete_coin/<id>")
 def delete_coin(id):
-    mongo.db.coins.remove({"_id": ObjectId(id)})
-    flash("Coin deleted")
-    return redirect(url_for("catalog"))
+    # if user is logged in remove user record from db
+    if 'user_email' in session:
+        mongo.db.coins.remove({"_id": ObjectId(id)})
+        flash("Coin deleted")
+        # if administrator redirect to catalog
+        if session['user_email'] == "admin@coinscatalog.info":
+            return redirect(url_for("catalog"))
+        # if user redirect to users profile
+        else:
+            return redirect(url_for(
+                "profile", user_email=session["user_email"]))
 
 
 """
