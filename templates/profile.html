@@ -11,13 +11,13 @@
                 <div>
                     <img class="card-img-top" src="../static/images/unsplash-simon-zRxLgc-o56I.jpg" alt="Profile image">
                 </div>
-                <div class="card-body elegant-color amber-text text-center p-left pb-0">
+                <div class="card-body elegant-color amber-text text-center p-left text-transfer pb-0">
                     <!-- title -->
                     <h4 class="card-title text-uppercase">Your profile details</h4>
                     <hr class="hr-light">
                     <!-- first name -->
                     <div class="row my-3">
-                        <div class="col" id="text-transfer">
+                        <div class="col">
                             <p class="col-form-label text-right"><i class="fas fa-user-tie mx-3"></i>First name:</p>
                         </div>
                         <div class="col">
@@ -48,7 +48,7 @@
                     <div>
                         <hr class="hr-light mt-4">
                         <h4 class="card-title text-uppercase">Your coins:</h4>
-                        <a href="{{ url_for('new_coin') }}" class="btn btn-grey col col-md-3 mt-0 mx-0">Add New Coin</a>
+                        <a href="{{ url_for('new_coin') }}" class="btn btn-grey col col-md-3 px-md-3 mt-0 mx-0">Add New Coin</a>
                         <a type="button" class="btn btn-grey col col-md-3 mt-0 mx-0" id="show_coins_btn" href="#user_coins">Show
                             coins</a>
                         <button type="button" class="btn btn-grey col col-md-3 mt-0 mx-0" id="hide_coins_btn">Hide coins</button>
@@ -72,43 +72,43 @@
                                         <!-- display other details when user decide to show them-->
                                         <div class="row col-form-label" id="coin_details{{ loop.index }}">
                                             <div class="col-5">
-                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Name:</p>
+                                                <p class="ml-1 ml-sm-4 mx-lg-3 ml-xl-5">Name:</p>
                                             </div>
                                             <div class="col-7">
                                                 <p>{{ coin.name }}</p>
                                             </div>
                                             <div class="col-5">
-                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Type:</p>
+                                                <p class="ml-1 ml-sm-4 mx-lg-3 ml-xl-5">Type:</p>
                                             </div>
                                             <div class="col-7">
                                                 <p>{{ coin.type }}</p>
                                             </div>
                                             <div class="col-5">
-                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Weight:</p>
+                                                <p class="ml-1 ml-sm-4 mx-lg-3 ml-xl-5">Weight:</p>
                                             </div>
                                             <div class="col-7">
                                                 <p>{{ coin.weight }}</p>
                                             </div>
                                             <div class="col-5">
-                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Mint:</p>
+                                                <p class="ml-1 ml-sm-4 mx-lg-3 ml-xl-5">Mint:</p>
                                             </div>
                                             <div class="col-7">
                                                 <p>{{ coin.mint }}</p>
                                             </div>
                                             <div class="col-5">
-                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Country:</p>
+                                                <p class="ml-1 ml-sm-4 mx-lg-3 ml-xl-5">Country:</p>
                                             </div>
                                             <div class="col-7">
                                                 <p>{{ coin.country }}</p>
                                             </div>
                                             <div class="col-5">
-                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Purity:</p>
+                                                <p class="ml-1 ml-sm-4 mx-lg-3 ml-xl-5">Purity:</p>
                                             </div>
                                             <div class="col-7">
                                                 <p>{{ coin.purity }}</p>
                                             </div>
                                             <div class="col-5">
-                                                <p class="ml-1 ml-sm-5 mx-lg-3 ml-xl-5">Year:</p>
+                                                <p class="ml-1 ml-sm-4 mx-lg-3 ml-xl-5">Year:</p>
                                             </div>
                                             <div class="col-7">
                                                 <p>{{ coin.year }}</p>
@@ -118,8 +118,8 @@
                                             <div class="col btn-group px-0 mx-0" role="group"
                                                 aria-label="edit and delete buttons">
                                                 <a href="{{ url_for('edit_coin', id=coin._id) }}"
-                                                    class="col btn btn-mdb-color mt-0 mx-0">Edit</a>
-                                                <button type="button" class="col btn btn-blue-grey mt-0 mx-0"
+                                                    class="col btn btn-mdb-color px-4 mt-0 mx-0">Edit</a>
+                                                <button type="button" class="col btn btn-blue-grey px-4 mt-0 mx-0"
                                                     data-toggle="modal" data-target="#modal{{coin._id}}">Delete</button>
                                                 <div class="modal modal-notify fade mt-5" id="modal{{coin._id}}"
                                                     tabindex="-1" role="dialog" aria-labelledby="delete-modal"
