@@ -12,7 +12,6 @@ a{
 }
 a:hover{
     color: #ffc107;
-    font-weight: 600;
 }
 
 h2{
@@ -200,4 +199,9 @@ select {
     border-right: .25em solid transparent;
     border-top: 0.375em solid #0e0e0e;
     pointer-events: none;
+}
+@media (max-width: 575px){
+    .mdl-selectfield:after{
+        top: 3.25em;
+    }
 }
