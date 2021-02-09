@@ -30,20 +30,80 @@
 </div>
 
 <!-- search results for last 6 coins -->
-<div class="container elegant-color text-center rounded mb-4">
+<div class="container elegant-color amber-text text-center rounded mb-4">
     <!-- <h4 class="amber-text pt-2">Search results:</h4> -->
     <div class="row rounded mb-4">
         {% for coin in coins %}
-            {% if loop.index0 < 6 %}
+            {% if loop.index0 < 12 %}
             <div class="col-md-6 col-lg-4 py-3">
                 <div class="card mb-0 black">
-                    <div class="avatar mx-auto black" style="height: 15rem;">
+                    <div class="mx-auto" style="height: 15rem;">
                         <img class="my-lg-auto rounded-circle" style="width: 15rem;" src="{{ coin.image }}" alt="{{ coin.name }}">
                     </div>
-                    <div class="card-body white">
-                        <h4 class="card-title">{{ coin.description }}</h4>
-                        <hr>
+                    {% if 'user_email' in session %}
+                    <div class="card-body grey darken-4">
+                        <!-- display description -->
+                        <a id="{{ loop.index }}" class="coin_link">
+                            <h4 class="card-title fixed-height mb-0" required>{{ coin.description }}</h4>
+                            <small class="text-muted">Click here to view more details</small>
+                        </a>
+                        <hr class="hr-light">
+                        <!-- display other details when user decide to show them-->
+                        <div class="row col-form-label" id="coin_details{{ loop.index }}">
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Name:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.name }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Type:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.type }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Weight:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.weight }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Mint:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.mint }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Country:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.country }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Purity:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.purity }}</p>
+                            </div>
+                            <div class="col-5">
+                                <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Year:</p>
+                            </div>
+                            <div class="col-7">
+                                <p>{{ coin.year }}</p>
+                            </div>
+                        </div>
                     </div>
+                    {% else %}
+                    <div class="card-body grey darken-4">
+                        <!-- display description -->
+                        <a id="{{ loop.index }}" class="coin_link" href="{{ url_for('register') }}">
+                            <h4 class="card-title fixed-height amber-text mb-0" required>{{ coin.description }}</h4>
+                            <small class="text-muted">Register to view more details</small>
+                        </a>
+                        <hr class="hr-light">
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             {% endif %}
@@ -53,7 +113,7 @@
 
 <!-- Counter -->
 <!-- Template from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view -->
-<div class="row elegant-color text-white rounded mx-0 py-4 px-2 mb-4">
+<div class="row elegant-color text-white rounded mx-0 pt-4 pb-2 px-2 mb-4">
     
     <!-- user counter -->
     <div class="col-6 col-md-3 pl-4">
@@ -90,7 +150,7 @@
     
     <!-- satisfaction counter -->
     <div class="col-md-6">
-        <div class="row pt-2">
+        <div class="row pt-2 pt-md-0">
             <div class="col-6 pr-0">
                 <h4 class="display-4 text-right"><span class="d-flex justify-content-end">
                     <span class="count2" data-from="0" data-to="100" data-time="1000">0</span> %
@@ -108,22 +168,25 @@
 <!-- Template from: https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view -->
 {% if 'user_email' not in session:%}
 <div class="container elegant-color text-white text-center rounded mb-4">
-    <h3 class="font-weight-bold amber-text py-3">Join our community today!</h3>
+    <!-- title -->
+    <h3 class="font-weight-bold amber-text py-4">Join our community today!</h3>
     <p class="w-responsive mx-auto mb-2">If you don't have an account please<a href="{{ url_for('register') }}"> Register</a> here.</p>
     <h4 class="amber-text py-3">Latest coins:</h4>
     <div class="row">
+    <!-- show results for last 3 coins -->
     {% for coin in coins_list %}
         {% if loop.revindex0 < 3 %} 
         <div class="col-md-6 col-lg-4">
             <div class="card mb-4 black view overlay z-depth-1">
-                <div class="avatar mx-auto black" style="height: 15rem;">
+                <div class="mx-auto" style="height: 15rem;">
                     <img class="my-lg-auto rounded-circle" style="width: 15rem;" src="{{ coin.image }}" alt="{{ coin.name }}">
                 </div>
                  <div class="mask flex-center rgba-orange-light">
                     <a class="btn btn-info btn-rounded" href="{{ url_for('register') }}">To see more please Register here</a>
                 </div>
                 <div class="card-body white">
-                    <h4 class="card-title black-text">{{ coin.description }}</h4>
+                    <!-- display description -->
+                    <h4 class="card-title fixed-height black-text">{{ coin.description }}</h4>
                     <hr class="my-0">
                 </div>
             </div>
