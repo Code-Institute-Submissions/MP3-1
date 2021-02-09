@@ -15,8 +15,8 @@
                     <div class="row my-3">
                         <label for="name" class="col-sm-3 px-1 col-form-label">Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Coin name" min="5"
-                                max="30" value="{{ coin.name }}" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Coin name" minlength="5"
+                                maxlength="30" value="{{ coin.name }}" required>
                         </div>
                     </div>
                     <!-- coin type -->
@@ -39,16 +39,16 @@
                     <div class="row my-3">
                         <label for="weight" class="col-sm-3 px-1 col-form-label">Weight</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" min="1"
-                                max="10" value="{{ coin.weight }}" required>
+                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" minlength="1"
+                                maxlength="10" value="{{ coin.weight }}" required>
                         </div>
                     </div>
                     <!-- coin country -->
                     <div class="row mt-3">
                         <label for="country" class="col-sm-3 px-1 col-form-label">Country</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" min="3"
-                                max="50" value="{{ coin.country }}" required>
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" minlength="3"
+                                maxlength="50" value="{{ coin.country }}" required>
                         </div>
                     </div>
                 </div>
@@ -57,24 +57,24 @@
                     <div class="row my-3">
                         <label for="purity" class="col-sm-3 px-1 col-form-label">Purity</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="purity" name="purity" placeholder="Purity" min="5"
-                                max="20" value="{{ coin.purity }}" required>
+                            <input type="text" class="form-control" id="purity" name="purity" placeholder="Purity" minlength="5"
+                                maxlength="20" value="{{ coin.purity }}" required>
                         </div>
                     </div>
                     <!-- coin mint -->
                     <div class="row my-3">
                         <label for="mint" class="col-sm-3 px-1 col-form-label">Mint</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="mint" name="mint" placeholder="Coin mint" min="5"
-                                max="30" value="{{ coin.mint }}" required>
+                            <input type="text" class="form-control" id="mint" name="mint" placeholder="Coin mint" minlength="5"
+                                maxlength="30" value="{{ coin.mint }}" required>
                         </div>
                     </div>
                     <!-- coin year -->
                     <div class="row my-3">
                         <label for="year" class="col-sm-3 px-1 col-form-label">Year</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="year" name="year" placeholder="Coin year" min="1"
-                                max="4" value="{{ coin.year }}" required>
+                            <input type="text" class="form-control" id="year" name="year" placeholder="Coin year" minlength="1"
+                                maxlength="4" value="{{ coin.year }}" required>
                         </div>
                     </div>
                     <!-- coin description -->
@@ -82,7 +82,7 @@
                         <label for="description" class="col-sm-3 px-1 col-form-label">Description</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="description" name="description"
-                                placeholder="Description" min="5" max="80" value="{{ coin.description }}" required>
+                                placeholder="Description" minlength="5" maxlength="80" value="{{ coin.description }}" required>
                         </div>
                     </div>
                 </div>
@@ -103,9 +103,9 @@
             <div class="row mx-0 my-3">
                 <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 btn-group px-0" role="group" aria-label="edit and delete buttons">
                     <!-- Update button -->
-                    <button type="submit" class="btn btn-md btn-blue-grey mx-1 mx-md-2 mx-xl-4 px-2">Update</button>
+                    <button type="submit" class="btn btn-blue-grey mx-1 mx-md-2 mx-xl-4 px-2">Update</button>
                     <!-- Cancel button -->
-                    <a href="{{ url_for('profile', user_email=session['user_email']) }}" class="btn btn-md btn-mdb-color mx-1 mx-md-2 mx-xl-4 px-2">Cancel</a>
+                    <a href="{{ url_for('profile', user_email=session['user_email']) }}" class="btn btn-mdb-color mx-1 mx-md-2 mx-xl-4 px-2">Cancel</a>
                 </div>
             </div>
         </div>
