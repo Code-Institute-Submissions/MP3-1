@@ -15,7 +15,7 @@
                 <!-- search form -->
                 <form class="input-card elegant-color z-depth-2 py-2 px-3" action="{{ url_for('search') }}" method="POST">
                     <div class="input-grey input-round input-group rgba-white-light my-2">
-                        <input type="text" class="form-control white-text bg-transparent border-0 z-depth-0" name="query" 
+                        <input type="search" class="form-control white-text bg-transparent border-0 z-depth-0" name="query" 
                             id="query" placeholder="Search coins" aria-describedby="search coins">
                         <!-- search button -->
                         <div class="input-group-append" aria-label="search coins button">
@@ -66,7 +66,7 @@
                                 <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Weight:</p>
                             </div>
                             <div class="col-7">
-                                <p>{{ coin.weight }}</p>
+                                <p>{{ coin.weight }} {{ coin.weightunit }}</p>
                             </div>
                             <div class="col-5">
                                 <p class="ml-1 ml-sm-4 mx-lg-2 ml-xl-4">Mint:</p>

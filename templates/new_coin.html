@@ -33,8 +33,15 @@
                     <!-- coin weight -->
                     <div class="row my-3">
                         <label for="weight" class="col-sm-3 px-1 col-form-label">Weight</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" minlength="1" maxlength="10" required>
+                        <div class="col-sm-9 input-group">
+                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Coin weight" minlength="1" maxlength="6"
+                                pattern="^[0-9.]{1,6}$" title="Please insert a number" data-toggle="tooltip" data-placement="bottom" required>
+                            <div class="input-group-append">
+                                <select name="weightunit" id="weightunit" class="input-group-text">
+                                    <option value="g">g</option>
+                                    <option value="oz">oz</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <!-- coin country -->
@@ -50,7 +57,8 @@
                     <div class="row my-3">
                         <label for="purity" class="col-sm-3 px-1 col-form-label">Purity</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="purity" name="purity" placeholder="Purity" minlength="5" maxlength="20" required>
+                            <input type="text" class="form-control" id="password" name="purity" placeholder="Purity" minlength="5" maxlength="10"
+                                pattern="^[0-9.\s/]{1,10}$" title="Please insert corect format. Example: 999.9/1000" data-toggle="tooltip" data-placement="bottom" required>
                         </div>
                     </div>
                     <!-- coin mint -->
@@ -64,7 +72,9 @@
                     <div class="row my-3">
                         <label for="year" class="col-sm-3 px-1 col-form-label">Year</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="year" name="year" placeholder="Coin year" minlength="1" maxlength="4" required>
+                            <input type="number" class="form-control" id="year" name="year" placeholder="Coin year" min="1800" max="2021" pattern="^[0-9.]{1,4}$"
+                                title="Please select between 1800 and 2021" minlength="4" maxlength="4" data-toggle="tooltip" data-placement="bottom" required>
+                            <small class="text-muted mr-md-5">PLEASE INSERT URL LINK</small>
                         </div>
                     </div>
                     <!-- coin description -->

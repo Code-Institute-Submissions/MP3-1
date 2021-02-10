@@ -6,6 +6,7 @@ $(document).ready(function () {
     $('.count-up').counter();
     $('.count1').counter();
     $('.count2').counter();
+    $('[data-toggle="tooltip"]').tooltip(); 
 })
 
  // show user coins in profile page
