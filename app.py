@@ -118,11 +118,8 @@ def profile(user_email):
         users = list(mongo.db.users.find())
         email = mongo.db.users.find_one(
             {"email": session["user_email"]})["email"]
-        # check if session email exist
-        if session["user_email"]:
-            return render_template(
+        return render_template(
                 "profile.html", user_email=email, users=users, coins=coins)
-        return redirect(url_for("login"))
     return redirect(url_for("home"))
 
 
@@ -133,6 +130,23 @@ def logout():
     flash("You have been logged out")
     session.pop("user_email")
     return redirect(url_for("home"))
+
+
+"""
+Email functionality
+"""
+
+
+# Email route
+@app.route("/email")
+def email():
+    if 'user_email' in session:
+        # grab all users list & the session user's email from db
+        users = list(mongo.db.users.find())
+        email = mongo.db.users.find_one(
+            {"email": session["user_email"]})["email"]
+        return render_template("email.html", users=users, user_email=email)
+    return render_template("email.html")
 
 
 """
