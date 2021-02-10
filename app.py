@@ -1,4 +1,5 @@
 import os
+import json
 from flask import (
     Flask, render_template, request, flash, session, url_for, redirect)
 from flask_pymongo import PyMongo
@@ -167,10 +168,15 @@ def new_coin():
             }
             # insert new coin in to db
             mongo.db.coins.insert_one(coin)
+            email = session['user_email']
             flash("New coin added into database")
-            return redirect(url_for("catalog"))
+            return redirect(url_for("profile", user_email=email))
         type = mongo.db.coin_type.find().sort("type", 1)
-        return render_template("new_coin.html", type=type)
+
+        # load json country list
+        json_countries = open('static/json/countries.json')
+        cl = json.load(json_countries)
+        return render_template("new_coin.html", type=type, list=cl)
     return redirect(url_for("home"))
 
 
@@ -200,7 +206,11 @@ def edit_coin(id):
             return redirect(url_for("profile", user_email=email))
         coin = mongo.db.coins.find_one({"_id": ObjectId(id)})
         type = mongo.db.coin_type.find().sort("type", 1)
-        return render_template("edit_coin.html", coin=coin, type=type)
+
+        # load json country list
+        json_countries = open('static/json/countries.json')
+        cl = json.load(json_countries)
+        return render_template("edit_coin.html", coin=coin, type=type, list=cl)
     return redirect(url_for("home"))
 
 

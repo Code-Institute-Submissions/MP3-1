@@ -45,10 +45,15 @@
                         </div>
                     </div>
                     <!-- coin country -->
-                    <div class="row mt-3">
+                    <div class="row my-3 mdl-selectfield">
                         <label for="country" class="col-sm-3 px-1 col-form-label">Country</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" minlength="3" maxlength="50" required>
+                            <select class="form-control" id="country" name="country" required>
+                                <option disabled>Country type</option>
+                                {% for countries in list %}
+                                    <option value="{{ countries['Name'] }}">{{ countries['Name'] }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -72,9 +77,8 @@
                     <div class="row my-3">
                         <label for="year" class="col-sm-3 px-1 col-form-label">Year</label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control" id="year" name="year" placeholder="Coin year" min="1800" max="2021" pattern="^[0-9.]{1,4}$"
-                                title="Please select between 1800 and 2021" minlength="4" maxlength="4" data-toggle="tooltip" data-placement="bottom" required>
-                            <small class="text-muted mr-md-5">PLEASE INSERT URL LINK</small>
+                            <input type="number" class="form-control" id="year" name="year" placeholder="Coin year" minlength="4" maxlength="4" min="1800" max="2021"
+                                pattern="^[0-9.]{1,4}$" title="Please select between 1800 and 2021" data-toggle="tooltip" data-placement="bottom" required>
                         </div>
                     </div>
                     <!-- coin description -->

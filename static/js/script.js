@@ -6,6 +6,7 @@ $(document).ready(function () {
     $('.count-up').counter();
     $('.count1').counter();
     $('.count2').counter();
+    // bootstrap tooltip
     $('[data-toggle="tooltip"]').tooltip(); 
 })
 

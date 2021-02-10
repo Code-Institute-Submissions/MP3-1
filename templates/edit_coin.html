@@ -26,6 +26,7 @@
                             <select class="form-control" id="type" name="type" required>
                                 <option disabled>Coin type</option>
                                 {% for option in type %}
+                                    <!-- compare coins and coin_type tables and display corect data -->
                                     {% if option.type == coin.type %}
                                         <option value="{{ option.type }}" selected>{{ option.type }}</option>
                                     {% else %}
@@ -43,17 +44,32 @@
                                 pattern="^[0-9.]{1,6}$" title="Please insert a number" data-toggle="tooltip" data-placement="bottom" required>
                             <div class="input-group-append">
                                 <select name="weightunit" id="weightunit" class="input-group-text">
-                                    <option value="g">g</option>
-                                    <option value="oz">oz</option>
+                                    <option value="{{ coin.weightunit }}">{{ coin.weightunit }}</option>
+                                    <!-- check weightunit with a database and display corect -->
+                                    {% if coin.weightunit == 'oz' %}
+                                        <option value="g">g</option>
+                                    {% else %}
+                                        <option value="oz">oz</option>
+                                    {% endif %}
                                 </select>
                             </div>
                         </div>
                     </div>
                     <!-- coin country -->
-                    <div class="row mt-3">
+                    <div class="row my-3 mdl-selectfield">
                         <label for="country" class="col-sm-3 px-1 col-form-label">Country</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" minlength="3" maxlength="50" value="{{ coin.country }}" required>
+                            <select class="form-control" id="country" name="country" required>
+                                <option disabled>Country type</option>
+                                {% for countries in list %}
+                                    <!-- compare country with json file and display existing country name -->
+                                    {% if countries['Name'] == coin.country %}
+                                        <option value="{{ countries['Name'] }}" selected>{{ countries['Name'] }}</option>
+                                    {% else %}
+                                        <option value="{{ countries['Name'] }}">{{ countries['Name'] }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
                         </div>
                     </div>
                 </div>
