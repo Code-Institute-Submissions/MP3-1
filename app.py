@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from flask_paginate import Pagination, get_page_args
 if os.path.exists("env.py"):
     import env
 
@@ -158,7 +159,17 @@ Catalog, New Coin, Edit Coin, Delete Coin functionality
 @app.route("/catalog")
 def catalog():
     coins = list(mongo.db.coins.find())
-    return render_template("catalog.html", coins=coins)
+
+    def get_coins(offset=0, per_page=10):
+        return coins[offset: offset + per_page]
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    total = len(coins)
+    pagination_coins = get_coins(offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='bootstrap4')
+    return render_template("catalog.html", coins=pagination_coins, page=page,
+                           per_page=per_page, pagination=pagination,)
 
 
 # New Coin route
@@ -306,4 +317,5 @@ def delete_type(id):
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")))
+            port=int(os.environ.get("PORT")),
+            debug=True)
