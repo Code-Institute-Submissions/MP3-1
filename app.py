@@ -314,8 +314,19 @@ def delete_type(id):
     return redirect(url_for("types"))
 
 
+# Redirect 404 error to home page
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('errorpage.html'), 404
+
+
+# Redirect 500 error to home page
+@app.errorhandler(500)
+def internal_error(e):
+    return render_template('errorpage.html'), 500
+
+
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+            port=int(os.environ.get("PORT")))
