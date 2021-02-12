@@ -47,22 +47,23 @@ As a new user:
 - I would like to register easily and login immediately after registration.
 
 As a returning user:
-- I would like to login and edit details on my account.
+- I would like to login and view details on my account.
 - I would like to add a new coin to the database.
-- I would like to edit my coins data in a database.
-- I would like to delete my coins data from a database.
+- I would like to edit my coin data in a database.
+- I would like to delete my coin from a database.
 - I would like to see a confirmation message on every action I take on the website.
 
 As a site administrator:
-- I would like to have a control of all data in the website database.
-- I would like to have a control of all user profiles.
+- I would like to have a control of all data on the website database.
+- I would like to have a control of all coin types.
+- I would like to allow users to send a message to website administrator.
 
 ## Structure of the website
 
 Website contains:
 - fixed navigation bar or burger icon on mobile devices with essential links to navigate on the website
 - a footer with contact option available all the time
-- main content site which change on every action taken by a user.
+- main content site which changes on every action taken by a user.
 
 ## Skeleton
 
@@ -88,7 +89,7 @@ Website contains:
     
     ![](md_data/wireframes/MobileAllCoinsPage.png)
     </details>
-- All Coins Page
+- Add Coin Page
 
     <details><summary>Desktop</summary>
 
@@ -120,8 +121,79 @@ Website contains:
     ![](md_data/wireframes/MobileLogin.png)
     </details>
 
+### Divergence final website look from wireframes
+
+- Landing Page
+    
+    On landing page I decided to add 2 sections below search option:
+        
+    - A counter to display number of users registered on the website.
+    - Join our community section for users that are not logged in.
+
+- All Coins Page
+
+    I decided to display images on the left hand side and description on the right hand side.
+    This approach does not distract a user.
+
+- Add Coin Page
+
+    - Extra field for a year.
+    - For a weight there is a drop down list for a weight unit.
+    - For a country there is a drop down list available with fixed set of countries.
+    - There is a Reset button instead of Cancel button.
+
+- Register Page
+
+    - There is a wide Register button instead of Sign up and Cancel buttons.
+ 
+ - Login Page
+
+    - Same as on the register page there is a wide Log in button instead of Sign in button.
+
+### Database schema
+
+Database contains 3 tables (collections):
+- Coin
+- Coin type
+- User
+
+The fields for each table can be found in the image below:
+
+<details><summary>Database</summary>
+
+![](md_data/database/DataBaseTables.png)
+</details>
+
 ## Surface
 
+### Colors
+
+Colours used in a project:
+Purpose | Colour value
+------------ | -------------
+background | # b0bec5 
+main font | # ffc107
+navigation and footer font | # ffffff
+link | # 696969
+hoover | # ffc107
+login, register, email button | # ffa000
+profile button | # 616161
+edit button | # 59698d
+delete button | # 78909c
+
+## Fonts
+
+* As a main font I used sans-serif.
+
+## Images
+
+I used images from:
+
+*  [unsplash.com](https://www.unsplash.com) and it is credited in [credits](#credits) section.
+
+*  [tavex.pl](https://www.tavex.pl) and it is credited in [credits](#credits) section.
+
+[Back to Table of contents](#table-of-contents)
 ___
 # Features
 
@@ -136,6 +208,12 @@ ___
 
 ___
 # Credits
+
+### Images:
+
+* [unsplash-simon-zRxLgc-o56I.jpg](https://unsplash.com/photos/zRxLgc-o56I)
+
+* All coins images are from [www.tavex.pl](https://www.tavex.pl) and are for educational use only.
 
 ___
 # Screenshots
