@@ -45,14 +45,14 @@
                             <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>
                             {% if session.user_email|lower == "admin@coinscatalog.info"|lower %}
                                <!-- Small button group -->
-                                <div class="btn-group">
+                                <li class="btn-group">
                                 <button class="btn btn-mdb-color btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">ADMIN OPTIONS</button>
                                     <div class="dropdown-menu bg-dark pb-0">
                                         <a class="nav-link dropdown-item bg-dark" href="{{ url_for('types') }}">Coin Types</a>
                                         <a class="nav-link dropdown-item bg-dark" href="{{ url_for('new_type') }}">Add new Type</a>
                                     </div>
-                                </div>
+                                </li>
                             {% endif %}
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log In</a></li>
