@@ -29,12 +29,10 @@
     </div>
 </div>
 
-<!-- search results for last 6 coins -->
+<!-- search results -->
 <div class="container elegant-color amber-text text-center rounded mb-4">
-    <!-- <h4 class="amber-text pt-2">Search results:</h4> -->
     <div class="row rounded mb-4">
         {% for coin in coins %}
-            {% if loop.index0 < 12 %}
             <div class="col-md-6 col-lg-4 py-3">
                 <div class="card mb-0 black">
                     <div class="mx-auto" style="height: 15rem;">
@@ -106,7 +104,6 @@
                     {% endif %}
                 </div>
             </div>
-            {% endif %}
         {% endfor %}
     </div>
 </div>
