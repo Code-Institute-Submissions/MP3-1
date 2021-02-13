@@ -426,6 +426,65 @@ ___
 ___
 # Deployment
 
+This project was deployed to Heroku. I used Gitpod as a development environment where I commited all changes to git version control system.
+I used push command in Gitpod to save changes into GitHub.
+Then connect my GitHub account to Heroku and set up `Automatic deployment` in Heroku under `Deploy` section in my coinscatalog app.
+
+![](md_data/deployment/deployment_method.png)
+![](md_data/deployment/deployment_method_2.png)
+
+To run this project folow below steps:
+
+MongoDb:
+* Setup MongoDB account [help here](https://docs.mongodb.com/guides/cloud/account/)
+* Setup atlas [help here](https://docs.atlas.mongodb.com/getting-started/)
+* Create a cluster [help here](https://docs.atlas.mongodb.com/cluster-configuration/)
+* In a cluster create new Database `coins_catalog` and add 3 collections:
+    coins, coin_types, users.
+ 
+ ![](md_data/deployment/create_database.png)
+
+Github:
+
+* Create an account and Log in to GitHub, then go to [MP3](https://github.com/marcin-kli/MP3) and click on repository to download
+* Select `Code` and click `Download the ZIP file`
+* After download you can extract the file and use it in your local environment or upload to your GitHub account
+* Alternatively you can [Clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+or [Fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+this repository ([MP3](https://github.com/marcin-kli/MP3)) into your github account
+* Run a repository directly from your GitHub repository through Gitpod button.
+
+Gitpod:
+
+* Create env.py file
+* Add env.py file to gitignore
+* Add details to env.py file:
+
+        import os
+        
+        os.environ.setdefault("IP", "0.0.0.0")
+        os.environ.setdefault("PORT", "5000")
+        os.environ.setdefault("SECRET_KEY", "YOURSECRETKEY")
+        os.environ.setdefault("MONGO_URI", "mongodb+srv://root:YOURPASSWORD@YOUR-CLUSTER-NAME.mongodb.net/YOUR-DATABASE-NAME?retryWrites=true&w=majority")
+        os.environ.setdefault("MONGO_DBNAME", "YOUR-DATABASE-NAME")
+
+* In terminal window create a requirements.txt file by typing pip3 freeze --local > requirements.txt
+* In terminal window create a Procfile by typing python app.py > Procfile
+* In terminal window create Add files, commit and push changes to Github
+
+
+Deploy a project to Heroku: 
+
+* Create an account and Log in to Heroku
+* From dashboard click `new` > `create new app`
+* Add a unique name in `App name` field
+* When connected go to `settings` > `Config Vars` and add key and value pairs.
+  Variables shoud be the same as in the env.py file
+* From `Deploy` go to `Automatic deployment` and connect `Connect to  GitHub` section, then select github username and repository name
+* Heroku will receive all settings from your Github repository. Please wait for a message `your app was successfully deployed`
+* Click `Open App` from top right corner to view the app in a new window.
+
+[Back to Table of contents](#table-of-contents)
 ___
 # Credits
 
