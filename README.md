@@ -228,7 +228,6 @@ For logged in users:
 
 ![](md_data/features/navbar_user.png)
 
-
 For administrator who is logged in there are the same options as for a logged in user.
 Additionally, there is an Admin options button available. It contains two links:
 - Coin Types
@@ -373,7 +372,6 @@ ___
 ### Javascript
 * As a front-end programming language.
 
-
 ### Python 3.8.7
 * As a back-end programming language.
 
@@ -412,6 +410,9 @@ ___
 
 ### Gitpod
 * As a development hosting platform.
+
+### Heroku
+* As a cloud-based hosting platform.
 
 ### Wireframe.cc
 * As a wireframing tool.
@@ -472,7 +473,6 @@ Gitpod:
 * In terminal window create a Procfile by typing python app.py > Procfile
 * In terminal window create Add files, commit and push changes to Github
 
-
 Deploy a project to Heroku: 
 
 * Create an account and Log in to Heroku
@@ -488,11 +488,37 @@ Deploy a project to Heroku:
 ___
 # Credits
 
+* To complete this project I used Code Institute student template: [gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+* Task Manager project from the Data Centric module.
+
+* Ideas and knowledge library:
+
+    * [w3schools.com](https://www.w3schools.com)
+    * [Jinja - Template Designer Documentation](https://jinja.palletsprojects.com/en/2.10.x/templates/)
+    * [Material Design Blocks](https://mdbootstrap.com/docs/b4/jquery/design-blocks/)
+
+* How to connect MongoDB with Flask using Pymongo And Crud Operation with mongoDB [manual](https://medium.com/@sagarvermaitdeveloper/how-to-connect-mongodb-with-flask-using-pymongo-612f2bfbc95)
+
+### Code:
+
+* [modal](https://mdbootstrap.com/docs/b4/jquery/modals/additional/)
+
+* [pagination](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9)
+
+* [search bar](https://mdbootstrap.com/snippets/jquery/marta-szymanska/1404595#html-tab-view)
+
+* [counter](https://mdbootstrap.com/snippets/jquery/marta-szymanska/1359506#html-tab-view)
+
 ### Images:
 
-* [unsplash-simon-zRxLgc-o56I.jpg](https://unsplash.com/photos/zRxLgc-o56I)
+* Unsplash: [unsplash-simon-zRxLgc-o56I.jpg](https://unsplash.com/photos/zRxLgc-o56I)
 
-* All coins images are from [www.tavex.pl](https://www.tavex.pl) and are for educational use only.
+* All coins images and background image for a search bar: [www.tavex.pl](https://www.tavex.pl)     for educational use only.
+
+### Content
+
+* Coins features was taken from a [Celtic gold](https://www.celticgold.eu/) website.
 
 ___
 # Screenshots
