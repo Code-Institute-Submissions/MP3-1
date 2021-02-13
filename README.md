@@ -288,9 +288,9 @@ Login link is available below a Register button.
 
 ### New Coin
 
-On this site user can add a new coin. All fields has to be filled out.
-Add coin button will validate a form and redirect user to the profile page.
-Reset button reset all data in the form.
+On this site user can add a new coin. All of the fields have to be filled out.
+Add coin button validates the form and redirects the user to the profile page.
+Reset button resets all data in the form.
 
 <details><summary>Add new coin</summary>
 
@@ -310,7 +310,7 @@ Also Edit and Delete options are available here.
 
 ### Log Out
 
-Log Out button will end a session and redirect user to the home page.
+Log Out button ends the session and redirects user to the home page.
 
 <details><summary>Log Out</summary>
 
@@ -320,6 +320,7 @@ Log Out button will end a session and redirect user to the home page.
 ### Coin Types
 
 This is an administrator option only. Administrator can view, edit or delete coin type here.
+
 <details><summary>Coin Types</summary>
 
 ![](md_data/features/coin_types.png)
@@ -336,7 +337,7 @@ This is an administrator option only. Administrator can add new coin type here.
 
 ### Catalog - administrator option
 
-This is an administrator option only. Administrator can edit or delete users coins.
+This is an administrator option only. Administrator can edit or delete user's coins.
 
 <details><summary>Catalog</summary>
 
@@ -359,9 +360,66 @@ Contact us page is always accessible from a footer. Name and email fields are fi
 - Add pagination for search option
 - Add sort option in a catalog
 
+[Back to Table of contents](#table-of-contents)
 ___
 # Technologies used
 
+### HTML5
+* As a structure language.
+
+### CSS
+* As a style language.
+
+### Javascript
+* As a front-end programming language.
+
+
+### Python 3.8.7
+* As a back-end programming language.
+
+### Bootstrap 
+* Bootstrap@4.5.3 as a CSS framework.
+
+### MDBootstrap CSS 
+* MDBootstrap@4.19.1 as a CSS framework.
+
+### jQuery 
+* jQuery@3.5.1 as a JavaScript library.
+
+### Email.js
+* As a Javascript library
+
+### Flask
+* As a web framework for the Python.
+
+### Jinja
+* As a web template engine for the Python.
+
+### MongoDB:
+* As a NoSQL database.
+
+### PyMongo
+* As a communicate between Python and MongoDB.
+
+### Font Awesome
+* Font Awesome@5.15.2 as an icon library.
+
+### GitHub
+* As a software hosting platform to keep project in a remote location.
+
+### Git
+* As a version-control system tracking.
+
+### Gitpod
+* As a development hosting platform.
+
+### Wireframe.cc
+* As a wireframing tool.
+
+### GNU Image Manipulation Program [GIMP]
+* As an image editor.
+
+[Back to Table of contents](#table-of-contents)
 ___
 # Testing
 
