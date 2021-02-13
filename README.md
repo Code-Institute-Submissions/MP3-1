@@ -73,52 +73,52 @@ Website contains:
 
     <details><summary>Desktop</summary>
 
-    ![](md_data/wireframes/DesktopLandingPage.png)
+    ![](md_data/wireframes/desktop_landing_page.png)
     </details>
     <details><summary>Mobile</summary>
     
-    ![](md_data/wireframes/MobileLandingPage.png)
+    ![](md_data/wireframes/mobile_landing_page.png)
     </details>
 - All Coins Page
 
     <details><summary>Desktop</summary>
 
-    ![](md_data/wireframes/DesktopAllCoinsPage.png)
+    ![](md_data/wireframes/desktop_all_coins_page.png)
     </details>
     <details><summary>Mobile</summary>
     
-    ![](md_data/wireframes/MobileAllCoinsPage.png)
+    ![](md_data/wireframes/mobile_all_coins_page.png)
     </details>
 - Add Coin Page
 
     <details><summary>Desktop</summary>
 
-    ![](md_data/wireframes/DesktopAddCoinPage.png)
+    ![](md_data/wireframes/desktop_add_coin_page.png)
     </details>
     <details><summary>Mobile</summary>
     
-    ![](md_data/wireframes/MobileAddCoinPage.png)
+    ![](md_data/wireframes/mobile_add_coin_page.png)
     </details>
 - Register Page
 
     <details><summary>Desktop</summary>
 
-    ![](md_data/wireframes/DesktopRegister.png)
+    ![](md_data/wireframes/desktop_register.png)
     </details>
     <details><summary>Mobile</summary>
     
-    ![](md_data/wireframes/MobileRegister.png)
+    ![](md_data/wireframes/mobile_register.png)
     </details>
 - Login Page
 
     <details><summary>Desktop</summary>
 
-    ![](md_data/wireframes/DesktopLogin.png)
+    ![](md_data/wireframes/desktop_login.png)
     </details>
 
     <details><summary>Mobile</summary>
     
-    ![](md_data/wireframes/MobileLogin.png)
+    ![](md_data/wireframes/mobile_login.png)
     </details>
 
 ### Divergence final website look from wireframes
@@ -161,7 +161,7 @@ The fields for each table can be found in the image below:
 
 <details><summary>Database</summary>
 
-![](md_data/database/DataBaseTables.png)
+![](md_data/database/database_tables.png)
 </details>
 
 ## Surface
@@ -178,8 +178,8 @@ main font | #ffc107
 navigation and footer font | #ffffff
 link | #696969
 hoover | #ffc107
-login, register, email button | #ffa000
-profile button | #616161
+login, register, email buttons | #ffa000
+add coin, show/hide coins  buttons | #616161
 edit button | #59698d
 delete button | #78909c
 
@@ -208,7 +208,8 @@ This project consist base.html page as a skeleton. It is divided into 4 parts:
 ## Navigation bar
 
 Navigation bar is located on the top of the website. It is responsive and changes to coins icon on mobile devices.
-Brand logo is located in the top left corner. Links are in the right corner.
+Brand logo is located in the top left corner. It is a link and it always redirect user to the home page.
+Page links are in the top right corner.
 
 Users who are on the website for the first time and are not logged in can see following options: 
 - Home
@@ -230,8 +231,8 @@ For logged in users:
 
 For administrator who is logged in there are the same options as for a logged in user.
 Additionally, there is an Admin options button available. It contains two links:
-- Coin types
-- Add new type
+- Coin Types
+- Add new Type
 
 ![](md_data/features/navbar_admin.png)
 
@@ -253,16 +254,16 @@ Site contains 3 sections:
 
 <details><summary>Home</summary>
 
-![](md_data/features/Home.png)
+![](md_data/features/home.png)
 </details>
 
 ### Catalog
 
-Site displays all coins from database. I used pagination and it is at the bottom of the page. 
+Site displays all coins from database. I used pagination and it is visible at the bottom of the page. 
 
 <details><summary>Catalog</summary>
 
-![](md_data/features/Catalog.png)
+![](md_data/features/catalog.png)
 </details>
 
 ### Log In
@@ -272,7 +273,7 @@ Below the login button there is a link to register page.
 
 <details><summary>Log In</summary>
 
-![](md_data/features/LogIn.png)
+![](md_data/features/log_in.png)
 </details>
 
 ### Register
@@ -282,7 +283,7 @@ Login link is available below a Register button.
 
 <details><summary>Register</summary>
 
-![](md_data/features/Register.png)
+![](md_data/features/register.png)
 </details>
 
 ### New Coin
@@ -293,7 +294,7 @@ Reset button reset all data in the form.
 
 <details><summary>Add new coin</summary>
 
-![](md_data/features/AddNewCoin.png)
+![](md_data/features/add_new_coin.png)
 </details>
 
 ### Profile
@@ -304,7 +305,7 @@ Also Edit and Delete options are available here.
 
 <details><summary>Profile</summary>
 
-![](md_data/features/Profile.png)
+![](md_data/features/profile.png)
 </details>
 
 ### Log Out
@@ -313,9 +314,50 @@ Log Out button will end a session and redirect user to the home page.
 
 <details><summary>Log Out</summary>
 
-![](md_data/features/LogOut.png)
+![](md_data/features/log_out.png)
 </details>
 
+### Coin Types
+
+This is an administrator option only. Administrator can view, edit or delete coin type here.
+<details><summary>Coin Types</summary>
+
+![](md_data/features/coin_types.png)
+</details>
+
+### Add new Type
+
+This is an administrator option only. Administrator can add new coin type here.
+
+<details><summary>Add new Type</summary>
+
+![](md_data/features/add_new_coin_type.png)
+</details>
+
+### Catalog - administrator option
+
+This is an administrator option only. Administrator can edit or delete users coins.
+
+<details><summary>Catalog</summary>
+
+![](md_data/features/catalog_admin_option.png)
+</details>
+
+### Contact Us
+
+Contact us page is always accessible from a footer. Name and email fields are filled out for logged in users.
+
+<details><summary>Contact Us</summary>
+
+![](md_data/features/contact_us.png)
+</details>
+
+### Possible future implementations:
+
+- Add administrator dashboard
+- Add option to edit or delete user account
+- Add pagination for search option
+- Add sort option in a catalog
 
 ___
 # Technologies used
