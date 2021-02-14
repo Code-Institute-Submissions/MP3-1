@@ -116,11 +116,24 @@ Form validation and `Send a message` button work as expected. OK button redirect
 
 ![](md_data/test/email.png)
 
+### Error pages
+
+All unrecognized pages are always redirect to error page.
+
+![](md_data/test/errorpage.png)
+
 
 [Back to Table of contents](#table-of-contents)
 ___
 ## Compatibility testing
 
+Site was tested across multiple virtual mobile devices and browsers.
+I checked all supported devices in both Mozilla web developer tolls and Chrome developer tools.
+
+All test Pass for devices from 320px on Chrome developer tools and 340px on Mozilla web developer tolls.
+
+I tested on hardware devices such as: Lenovo ideapad with Ubuntu and Windows OS's as a virtual machines,
+Lenovo smartphone with Android 7, LG smartphone with Android 8, Google pixel 3 with Android 11. No issues found.
 
 [Back to Table of contents](#table-of-contents)
 ___
@@ -196,7 +209,18 @@ The `x` is only visible in chrome browser for an input field with `type="search"
 
 I tried to fix it but it is hidden behind MDB CSS or JS file.
 
-I leave it as unfixed bug.
+#### I leave it as unfixed bug.
+
+### Other unfixed bugs:
+
+#### Second letter in a surname is not capitalize.
+
+![](md_data/test/bug2.png)
+
+#### Coins edited by administrator are saved as administrator collection in a database.
+
+This should be return back to database as a user collection.
+
 
 [Back to Table of contents](#table-of-contents)
 ___
