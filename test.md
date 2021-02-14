@@ -35,6 +35,29 @@ Starting from the top of the page, I check:
 
 ### Landing Page - Search
 
+* Search returns results from below fields from a database:
+    - name
+    - type
+    - weight
+    - weight unit
+    - country
+    - purity
+    - mint
+    - year
+    - description
+
+    Everything works as expected
+
+    * For not logged in user search returns coin image and coin description as a link to register page.
+    * For registered user search returns coin image and coin description. Description opens coin details.
+    * For not recognized search, flash message displays: `No results, Please try again!`
+
+* Coin counter works as expected
+
+* For not registered user, Join our community today section works and displays all content.
+Register link under a title works. Buttons on last 3 records from database work and redirect to register page.
+
+
 ### Catalog Page
 
 Page displays 10 records from a database. Pagination links work as expected.
@@ -108,7 +131,7 @@ ___
 ___
 ## Issues found during site development
 
-During site development I found a lot of bugs. I always tried to fix them on the immediately.
+During site development I found a lot of bugs. I always tried to fix them immediately.
 Here are few trivial and more complex examples.
 
 ### Register form error
@@ -119,7 +142,7 @@ The form allowed me to create an email without a domain name. As a test example 
 ![](md_data/test/emailtest.png)
 
 
-I had to change a pattern from
+I had to change the pattern from
 
 `pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}${5,35}$"`
 
@@ -131,8 +154,8 @@ to
 
 ![](md_data/test/emailcorrectpatterndb.png)
 
-After that fix, register form accept expected pattern. The only problem was with a typo on email label and placeholder.
-I had to wait for a two weeks until slack user found it!
+After that fix, register form accepts expected pattern. The only problem was with a typo on email label and placeholder.
+I had to wait for two weeks until slack user found it!
 
 ![](md_data/test/email_slack.png)
 
@@ -149,12 +172,11 @@ Bugs found and fixed:
 
 ![](md_data/test/div_in_navbar_fix.png)
 
-Even if something was OK an error still appear.
-
-![](md_data/test/p.png)
+Even if everything is OK an error still appears.
 
 ![](md_data/test/p_fix.png)
 
+![](md_data/test/p.png)
 
 ### Search errors
 
@@ -170,7 +192,7 @@ And in app.py file for search route:
 
 ![](md_data/test/app_py.png)
 
-The `x` is only visible in chrome browser for `type="search"` in an input field.
+The `x` is only visible in chrome browser for an input field with `type="search"`
 
 I tried to fix it but it is hidden behind MDB CSS or JS file.
 
@@ -180,7 +202,42 @@ I leave it as unfixed bug.
 ___
 ## Performance testing
 
+I run Lighthouse tool to check performance of the website.
+Performance results always vary and this is because of 3rd party images in mongodb database.
+
+<details><summary>Performance</summary>
+
+![](md_data/test/performance.png)
+</details>
+
+<details><summary>Performance - images</summary>
+
+![](md_data/test/performance_images.png)
+</details>
+
 
 [Back to Table of contents](#table-of-contents)
 ___
 ## Code Validation
+
+### Nu Html Checker to test HTML
+
+![](md_data/test/nu_html.png)
+
+### W3C CSS Validator to validate CSS
+
+![](md_data/test/w3c_css.png)
+
+### Jshint to test JavaScript
+
+![](md_data/test/code.js.png)
+
+![](md_data/test/email.js.png)
+
+### PEP8 online
+
+#### Result: Pass
+
+[Back to Table of contents](#table-of-contents)
+
+#### Back to [README.md](https://github.com/marcin-kli/MP3)
