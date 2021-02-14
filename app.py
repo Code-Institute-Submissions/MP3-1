@@ -41,6 +41,9 @@ def search():
     coins = list(mongo.db.coins.find({"$text": {"$search": query}}))
     coins_list = list(mongo.db.coins.find())
     users = list(mongo.db.users.find())
+    if len(coins) == 0:
+        flash("No results, Please try again!")
+        return redirect(url_for("home"))
     return render_template(
         "home.html", coins=coins, coins_list=coins_list, user_list=users)
 
