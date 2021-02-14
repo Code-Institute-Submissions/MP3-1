@@ -2,10 +2,13 @@
 
 ## Data Centric Development Milestone Project.
 
+![Mockup](md_data/mockup/mockup.png)
+
 Coins Catalog is a website where community can share their collections to other members and to the public. All users can search through dataset provided by a community members. Registered users can create, edit or delete their own dataset.
 
 This project is for educational purposes only.
 
+## [View live website](https://coinscatalog.herokuapp.com/)
 ___
 # Table of contents
 
@@ -352,6 +355,15 @@ Contact us page is always accessible from a footer. Name and email fields are fi
 ![](md_data/features/contact_us.png)
 </details>
 
+### Error page
+
+Custom error 404 and error 500 page.
+
+<details><summary>Error page</summary>
+
+![](md_data/features/error_page.png)
+</details>
+
 ### Possible future implementations:
 
 - Add administrator dashboard
@@ -424,17 +436,18 @@ ___
 ___
 # Testing
 
+### Testing section is located in [TEST.md](https://github.com/marcin-kli/MP3/blob/Milestone-Projects/TEST.md) file.
 ___
 # Deployment
 
 This project was deployed to Heroku. I used Gitpod as a development environment where I commited all changes to git version control system.
 I used push command in Gitpod to save changes into GitHub.
-Then connect my GitHub account to Heroku and set up `Automatic deployment` in Heroku under `Deploy` section in my coinscatalog app.
+Then connected my GitHub account to Heroku and set up `Automatic deployment` in Heroku under `Deploy` section in my coinscatalog app.
 
 ![](md_data/deployment/deployment_method.png)
 ![](md_data/deployment/deployment_method_2.png)
 
-To run this project folow below steps:
+To run this project follow below steps:
 
 MongoDb:
 * Setup MongoDB account [help here](https://docs.mongodb.com/guides/cloud/account/)
@@ -471,7 +484,7 @@ Gitpod:
 
 * In terminal window create a requirements.txt file by typing pip3 freeze --local > requirements.txt
 * In terminal window create a Procfile by typing python app.py > Procfile
-* In terminal window create Add files, commit and push changes to Github
+* In terminal window add files, commit and push changes to Github
 
 Deploy a project to Heroku: 
 
