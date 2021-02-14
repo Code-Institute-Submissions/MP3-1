@@ -61,7 +61,7 @@ Register link under a title works. Buttons on last 3 records from database work 
 ### Catalog Page
 
 Page displays 10 records from a database. Pagination links work as expected.
-When logged in as an administrator `Edit` and `Delete` buttons are visible work as expected.
+When logged in as an administrator `Edit` and `Delete` buttons are visible and work as expected.
 
 ![](md_data/test/catalog_administrator.png)
 
@@ -77,7 +77,7 @@ Form validation, `Register` button and Log in link work as expected.
 
 Form validation, `Add Coin` and `Reset` buttons work as expected.
 Corresponding tooltips are displayed for: weight, purity and year.
-Type, weight unit and country drop down list displays as expected.
+Type, weight unit and country drop down list display as expected.
 
 ![](md_data/test/new_coin_validation.png)
 
@@ -130,7 +130,7 @@ ___
 Site was tested across multiple virtual mobile devices and browsers.
 I checked all supported devices in both Mozilla web developer tolls and Chrome developer tools.
 
-All test Pass for devices from 320px on Chrome developer tools and 340px on Mozilla web developer tolls.
+All tests Passed for devices from 320px on Chrome developer tools and 340px on Mozilla web developer tolls.
 
 I tested on hardware devices such as: Lenovo ideapad with Ubuntu and Windows OS's as a virtual machines,
 Lenovo smartphone with Android 7, LG smartphone with Android 8, Google pixel 3 with Android 11. No issues found.
@@ -168,7 +168,7 @@ to
 ![](md_data/test/emailcorrectpatterndb.png)
 
 After that fix, register form accepts expected pattern. The only problem was with a typo on email label and placeholder.
-I had to wait for two weeks until slack user found it!
+The slack user found the bug on peer-code-review channel.
 
 ![](md_data/test/email_slack.png)
 
@@ -219,7 +219,7 @@ I tried to fix it but it is hidden behind MDB CSS or JS file.
 
 #### Coins edited by administrator are saved as administrator collection in a database.
 
-This should be return back to database as a user collection.
+This should return back to database as a user collection.
 
 
 [Back to Table of contents](#table-of-contents)

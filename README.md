@@ -24,7 +24,6 @@ ___
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
-- [Screenshots](#screenshots)
 
 ___
 # UX
@@ -281,7 +280,7 @@ Below the login button there is a link to register page.
 ### Register
 
 Register is the place where user can create an account.
-Login link is available below a Register button.
+Login link is available below the Register button.
 
 <details><summary>Register</summary>
 
@@ -533,5 +532,5 @@ ___
 
 * Coins features was taken from a [Celtic gold](https://www.celticgold.eu/) website.
 
+[Back to Table of contents](#table-of-contents)
 ___
-# Screenshots
