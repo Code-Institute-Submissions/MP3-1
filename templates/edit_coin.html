@@ -94,7 +94,7 @@
                     <div class="row my-3">
                         <label for="year" class="col-sm-3 px-1 col-form-label">Year</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="year" name="year" placeholder="Coin year" minlength="4" maxlength="4" min="1800" max="2021" value="{{ coin.year }}"
+                            <input type="number" class="form-control" id="year" name="year" placeholder="Coin year" minlength="4" maxlength="4" min="1800" max="2021" value="{{ coin.year }}"
                                 pattern="^[0-9.]{1,4}$" title="Please select between 1800 and 2021" data-toggle="tooltip" data-placement="bottom" required>
                         </div>
                     </div>
