@@ -436,7 +436,7 @@ ___
 ___
 # Testing
 
-### Testing section is located in [TEST.md](https://github.com/marcin-kli/MP3/blob/Milestone-Projects/TEST.md) file.
+### Testing section is located in [TEST.md](https://github.com/marcin-kli/MP3/blob/Milestone-Projects/test.md) file.
 ___
 # Deployment
 
