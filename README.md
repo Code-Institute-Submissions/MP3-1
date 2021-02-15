@@ -73,52 +73,52 @@ Website contains:
 
 - Landing Page
 
-    <details><summary>Desktop</summary>
+    <details><summary>Desktop (click to view)</summary>
 
     ![](md_data/wireframes/desktop_landing_page.png)
     </details>
-    <details><summary>Mobile</summary>
+    <details><summary>Mobile (click to view)</summary>
     
     ![](md_data/wireframes/mobile_landing_page.png)
     </details>
 - All Coins Page
 
-    <details><summary>Desktop</summary>
+    <details><summary>Desktop (click to view)</summary>
 
     ![](md_data/wireframes/desktop_all_coins_page.png)
     </details>
-    <details><summary>Mobile</summary>
+    <details><summary>Mobile (click to view)</summary>
     
     ![](md_data/wireframes/mobile_all_coins_page.png)
     </details>
 - Add Coin Page
 
-    <details><summary>Desktop</summary>
+    <details><summary>Desktop (click to view)</summary>
 
     ![](md_data/wireframes/desktop_add_coin_page.png)
     </details>
-    <details><summary>Mobile</summary>
+    <details><summary>Mobile (click to view)</summary>
     
     ![](md_data/wireframes/mobile_add_coin_page.png)
     </details>
 - Register Page
 
-    <details><summary>Desktop</summary>
+    <details><summary>Desktop (click to view)</summary>
 
     ![](md_data/wireframes/desktop_register.png)
     </details>
-    <details><summary>Mobile</summary>
+    <details><summary>Mobile (click to view)</summary>
     
     ![](md_data/wireframes/mobile_register.png)
     </details>
 - Login Page
 
-    <details><summary>Desktop</summary>
+    <details><summary>Desktop (click to view)</summary>
 
     ![](md_data/wireframes/desktop_login.png)
     </details>
 
-    <details><summary>Mobile</summary>
+    <details><summary>Mobile (click to view)</summary>
     
     ![](md_data/wireframes/mobile_login.png)
     </details>
@@ -161,7 +161,7 @@ Database contains 3 tables (collections):
 
 The fields for each table can be found in the image below:
 
-<details><summary>Database</summary>
+<details><summary>Database (click to view)</summary>
 
 ![](md_data/database/database_tables.png)
 </details>
@@ -253,7 +253,7 @@ Site contains 3 sections:
 - Counter with total number of users and total number of records in database
 - Join our community which is displayed for unregistered users only
 
-<details><summary>Home</summary>
+<details><summary>Home (click to view)</summary>
 
 ![](md_data/features/home.png)
 </details>
@@ -262,7 +262,7 @@ Site contains 3 sections:
 
 Site displays all coins from database. I used pagination and it is visible at the bottom of the page. 
 
-<details><summary>Catalog</summary>
+<details><summary>Catalog (click to view)</summary>
 
 ![](md_data/features/catalog.png)
 </details>
@@ -272,7 +272,7 @@ Site displays all coins from database. I used pagination and it is visible at th
 Here user can login to the account. After that site redirects user to the profile page.
 Below the login button there is a link to register page.
 
-<details><summary>Log In</summary>
+<details><summary>Log In (click to view)</summary>
 
 ![](md_data/features/log_in.png)
 </details>
@@ -282,7 +282,7 @@ Below the login button there is a link to register page.
 Register is the place where user can create an account.
 Login link is available below the Register button.
 
-<details><summary>Register</summary>
+<details><summary>Register (click to view)</summary>
 
 ![](md_data/features/register.png)
 </details>
@@ -293,7 +293,7 @@ On this site user can add a new coin. All of the fields have to be filled out.
 Add coin button validates the form and redirects the user to the profile page.
 Reset button resets all data in the form.
 
-<details><summary>Add new coin</summary>
+<details><summary>Add new coin (click to view)</summary>
 
 ![](md_data/features/add_new_coin.png)
 </details>
@@ -304,7 +304,7 @@ User can see account details on the profile page.
 User's coin collection can be displayed under show coins button.
 Also Edit and Delete options are available here.
 
-<details><summary>Profile</summary>
+<details><summary>Profile (click to view)</summary>
 
 ![](md_data/features/profile.png)
 </details>
@@ -313,7 +313,7 @@ Also Edit and Delete options are available here.
 
 Log Out button ends the session and redirects user to the home page.
 
-<details><summary>Log Out</summary>
+<details><summary>Log Out (click to view)</summary>
 
 ![](md_data/features/log_out.png)
 </details>
@@ -322,7 +322,7 @@ Log Out button ends the session and redirects user to the home page.
 
 This is an administrator option only. Administrator can view, edit or delete coin type here.
 
-<details><summary>Coin Types</summary>
+<details><summary>Coin Types (click to view)</summary>
 
 ![](md_data/features/coin_types.png)
 </details>
@@ -331,7 +331,7 @@ This is an administrator option only. Administrator can view, edit or delete coi
 
 This is an administrator option only. Administrator can add new coin type here.
 
-<details><summary>Add new Type</summary>
+<details><summary>Add new Type (click to view)</summary>
 
 ![](md_data/features/add_new_coin_type.png)
 </details>
@@ -340,7 +340,7 @@ This is an administrator option only. Administrator can add new coin type here.
 
 This is an administrator option only. Administrator can edit or delete user's coins.
 
-<details><summary>Catalog</summary>
+<details><summary>Catalog (click to view)</summary>
 
 ![](md_data/features/catalog_admin_option.png)
 </details>
@@ -349,7 +349,7 @@ This is an administrator option only. Administrator can edit or delete user's co
 
 Contact us page is always accessible from a footer. Name and email fields are filled out for logged in users.
 
-<details><summary>Contact Us</summary>
+<details><summary>Contact Us (click to view)</summary>
 
 ![](md_data/features/contact_us.png)
 </details>
@@ -358,7 +358,7 @@ Contact us page is always accessible from a footer. Name and email fields are fi
 
 Custom error 404 and error 500 page.
 
-<details><summary>Error page</summary>
+<details><summary>Error page (click to view)</summary>
 
 ![](md_data/features/error_page.png)
 </details>
