@@ -1,4 +1,4 @@
-/* all sites */
+/******************** all sites ********************/
 
 body{
     background-color: #B0BEC5;
@@ -12,6 +12,7 @@ body{
 a{
     color: #696969;
 }
+
 a:hover{
     color: #ffc107;
 }
@@ -21,7 +22,25 @@ a:hover{
     margin-right: 10%;
 }
 
-/* navigation */
+/***** flash messages *****/
+
+.flashes h4 {
+    line-height: 1.5;
+}
+
+/***** search and profile *****/
+
+.card-title.fixed-height{
+    height:4rem;
+}
+
+/***** modal *****/
+
+.modal-dialog.modal-notify.modal-info .modal-header {
+    background-color: #78909c;
+}
+
+/******************** navigation ********************/
 
 nav button{
     background-color: #FFA000 !important;
@@ -39,25 +58,13 @@ nav ul div a:hover{
     text-align: center;
 }
 
-/* footer */
+/******************** footer ********************/
 
 footer a{
     font-weight: 600 !important;
 }
 
-/* flash messages */
-
-.flashes h4 {
-    line-height: 1.5;
-}
-
-/* search and profile*/
-
-.card-title.fixed-height{
-    height:4rem;
-}
-
-/* search */
+/******************** search ********************/
 
 #search_img{
     background-image: url('https://cdn.tavex.pl/wp-content/uploads/2018/08/28222123/gdzie-kupic-zloto-inwestycyjne-1024x576.jpg');
@@ -82,13 +89,7 @@ footer a{
     border-radius: 10em;
 }
 
-/* modal */
-
-.modal-dialog.modal-notify.modal-info .modal-header {
-    background-color: #78909c;
-}
-
-/* register form */
+/******************** register form ********************/
 
 form i, form button i{
     font-size: 125%;
@@ -102,7 +103,7 @@ form a{
     font-weight: 600;
 }
 
-/* profile */
+/******************** profile ********************/
 
 .p-left .col{
     padding-left: 0;
@@ -123,7 +124,7 @@ form a{
     }
 }
 
-/* catalog */
+/******************** catalog ********************/
 
 .bg-transparent{
     background-color: transparent !important;
@@ -160,7 +161,7 @@ form a{
     }
 }
 
-/* pagination on catalog page */
+/***** pagination on catalog page *****/
 
 .pagination{
     justify-content: flex-end!important;
@@ -177,7 +178,7 @@ form a{
     color: #ffc107;
 }
 
-/* add new coin */
+/******************** add new coin; edit coin ********************/
 
 @media (max-width: 575px){
     .offset label {
@@ -187,6 +188,7 @@ form a{
 
 /* I used some of this code for select: https://www.codeseek.co/pudgereyem/material-design-andltselectandgt-element-css-only-PqBxQx */
 /* Style Select Field */
+
 select {
     font-family: inherit;
     background-color: inherit;
@@ -197,6 +199,7 @@ select {
 }
 
 /* Use custom arrow */
+
 .mdl-selectfield select {
     -webkit-appearance: none;
         -moz-appearance: none;
@@ -221,6 +224,7 @@ select {
     border-top: 0.375em solid #0e0e0e;
     pointer-events: none;
 }
+
 @media (max-width: 575px){
     .mdl-selectfield:after{
         top: 3.25em;
