@@ -164,15 +164,19 @@ The fields for each table can be found in the images below:
 <details><summary>Database (click to view)</summary>
 
 database schema:
+
 ![](md_data/database/database_tables.png)
 
 coins table:
+
 ![](md_data/database/coins.png)
 
 coin_type table:
+
 ![](md_data/database/coin_types.png)
 
 users table:
+
 ![](md_data/database/users.png)
 </details>
 
