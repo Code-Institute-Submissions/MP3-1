@@ -142,102 +142,102 @@ ___
 ### As a new user:
 
 - I would like to search coins catalog.
->  Search bar is visible and available for all users on the landing page.
+    >  Search bar is visible and available for all users on the landing page.
 
-<details><summary>Search (click to view)</summary>
+    <details><summary>Search (click to view)</summary>
 
-![](md_data/features/home.png)
-</details>
+    ![](md_data/features/home.png)
+    </details>
 
 - I would like to be able to access all catalog data.
->  A link to catalog page is in a navigation bar. User is able to view all coins there.
+    > A link to catalog page is in a navigation bar. User is able to view all coins there.
+    > Catalog page displays all data in a clear way.
 
-<details><summary>Catalog (click to view)</summary>
+    <details><summary>Catalog (click to view)</summary>
 
-![](md_data/features/catalog.png)
-</details>
+    ![](md_data/features/catalog.png)
+    </details>
 
-Catalog page displays all data in a clear way. 
 - I would like to register easily and login immediately after registration.
-> User has couple of options to register on the page:
-> - First: 
->   - link to `Register` page is in a navigation bar.
-> - Second: 
->   - register link on landing page in `Join our community today!` section
->   - a button visible on each photo in `Join our community today!` section
-> - Third: 
->   - link to register page under `log in` button in `Log In` page.
-> 
-> After registration user is login automatically and redirect to the `Profile` page.
+    > User has couple of options to register on the page:
+    > - First: 
+    >   - link to `Register` page is in a navigation bar.
+    > - Second: 
+    >   - register link on landing page in `Join our community today!` section
+    >   - a button visible on each photo in `Join our community today!` section
+    > - Third: 
+    >   - link to register page under `log in` button in `Log In` page.
+    > 
+    > After registration user is login automatically and redirect to the `Profile` page.
 
-<details><summary>Register (click to view)</summary>
+    <details><summary>Register (click to view)</summary>
 
-![](md_data/features/register.png)
-</details>
+    ![](md_data/features/register.png)
+    </details>
 
 ### As a returning user:
 - I would like to login and view details on my account.
->  Link to `Log In` page is in a navigation bar. User can login and view account details in `Profile` page.
+    >  Link to `Log In` page is in a navigation bar. User can login and view account details in `Profile` page.
 
-<details><summary>Log In (click to view)</summary>
+    <details><summary>Log In (click to view)</summary>
 
-![](md_data/features/log_in.png)
-</details>
+    ![](md_data/features/log_in.png)
+    </details>
 
 - I would like to add a new coin to the database.
->  User can add a coin from a navigation bar or from the profile page.
+    >  User can add a coin from a navigation bar or from the profile page.
 
-<details><summary>Add new coin (click to view)</summary>
+    <details><summary>Add new coin (click to view)</summary>
 
-![](md_data/features/add_new_coin.png)
-</details>
+    ![](md_data/features/add_new_coin.png)
+    </details>
 
 - I would like to edit my coin data in a database.
->  User can edit a coin from it's profile page. `Show coins` button displays all user data and `Edit` button is available for each coin.
+    >  User can edit a coin from it's profile page. `Show coins` button displays all user data and `Edit` button is available for each coin.
 
-<details><summary>Edit coin (click to view)</summary>
+    <details><summary>Edit coin (click to view)</summary>
 
-![](md_data/test/edit_coin.png)
-</details>
+    ![](md_data/test/edit_coin.png)
+    </details>
 
 - I would like to delete my coin from a database.
->  User can delete a coin from it's profile page. `Show coins` button displays all user data and `Delete` button is available for each coin.
+    >  User can delete a coin from it's profile page. `Show coins` button displays all user data and `Delete` button is available for each coin.
 
-<details><summary>Delete coin (click to view)</summary>
+    <details><summary>Delete coin (click to view)</summary>
 
-![](md_data/test/delete_coin.png)
-</details>
+    ![](md_data/test/delete_coin.png)
+    </details>
 
 - I would like to see a confirmation message on every action I take on the website.
->  All messages are displayed on the top of the page, as a flash messages. Additionally a modal is used for all delete operations.
+    >  All messages are displayed on the top of the page, as a flash messages. Additionally a modal is used for all delete operations.
 
-<details><summary>Message (click to view)</summary>
+    <details><summary>Message (click to view)</summary>
 
-![](md_data/test/flash.png)
-</details>
+    ![](md_data/test/flash.png)
+    </details>
 
 ### As a site administrator:
 - I would like to have a control of all data on the website database.
->  Administrator can edit or delete all coin data. This option is available in `Catalog` page.
-<details><summary>Administrator - Catalog (click to view)</summary>
+    >  Administrator can edit or delete all coin data. This option is available in `Catalog` page.
+    <details><summary>Administrator - Catalog (click to view)</summary>
 
-![](md_data/features/catalog_admin_option.png)
-</details>
+    ![](md_data/features/catalog_admin_option.png)
+    </details>
 
 - I would like to have a control of all coin types.
->  Administrator can view, add, edit or delete coin types from `Admin options` button. This button is visible to administrator only.
-<details><summary>Coin Types (click to view)</summary>
+    >  Administrator can view, add, edit or delete coin types from `Admin options` button. This button is visible to administrator only.
+    <details><summary>Coin Types (click to view)</summary>
 
-![](md_data/features/add_new_coin_type.png)
-![](md_data/features/coin_types.png)
-</details>
+    ![](md_data/features/add_new_coin_type.png)
+    ![](md_data/features/coin_types.png)
+    </details>
 
 - I would like to allow users to send a message to website administrator.
->  `Contact Us` button redirects users to contact page. Users can send a message from there.
-<details><summary>Contact Us (click to view)</summary>
+    >  `Contact Us` button redirects users to Contact page. Users can send a message from there.
+    <details><summary>Contact Us (click to view)</summary>
 
-![](md_data/features/contact_us.png)
-</details>
+    ![](md_data/features/contact_us.png)
+    </details>
 
 
 [Back to Table of contents](#table-of-contents)
