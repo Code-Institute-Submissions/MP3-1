@@ -25,10 +25,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# All routes (home as temporary)
+# All routes
 @app.route("/")
 @app.route("/home")
 def home():
+    # coins & users are for welcome screen for users that are not log in
     coins = list(mongo.db.coins.find())
     users = list(mongo.db.users.find())
     return render_template("home.html", coins_list=coins, user_list=users)
@@ -37,10 +38,13 @@ def home():
 # Search route
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    # query & coins are for search
     query = request.form.get("query")
     coins = list(mongo.db.coins.find({"$text": {"$search": query}}))
+    # coins_list & users are for welcome screen for users that are not log in
     coins_list = list(mongo.db.coins.find())
     users = list(mongo.db.users.find())
+    # check for search results
     if len(coins) == 0:
         flash("No results, Please try again!")
         return redirect(url_for("home"))
@@ -60,7 +64,6 @@ def register():
         # check for existing email
         existing_user = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
-
         if existing_user:
             flash("Email already exists")
             return redirect(url_for("register"))
@@ -72,9 +75,8 @@ def register():
             "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        # add user into db
+        # add user into database
         mongo.db.users.insert_one(newuser)
-
         # put the new user into 'session' cookie
         session["user_email"] = request.form.get("email").lower()
         flash("Registration Successful!")
@@ -89,7 +91,6 @@ def login():
         # check for existing email
         existing_user = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
-
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
@@ -105,7 +106,6 @@ def login():
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
@@ -117,7 +117,7 @@ def login():
 @app.route("/profile/<user_email>", methods=["GET", "POST"])
 def profile(user_email):
     if 'user_email' in session:
-        # grab all users list & the session user's email from db
+        # grab all users list & the session user's email from database
         coins = list(mongo.db.coins.find())
         users = list(mongo.db.users.find())
         email = mongo.db.users.find_one(
@@ -147,7 +147,7 @@ Email functionality
 @app.route("/email")
 def email():
     if 'user_email' in session:
-        # grab all users list & the session user's email from db
+        # grab all users list & the session user's email from database
         users = list(mongo.db.users.find())
         email = mongo.db.users.find_one(
             {"email": session["user_email"]})["email"]
@@ -164,12 +164,15 @@ Catalog, New Coin, Edit Coin, Delete Coin functionality
 @app.route("/catalog")
 def catalog():
     coins = list(mongo.db.coins.find())
+    # pagination for 10 items on the page
 
     def get_coins(offset=0, per_page=10):
         return coins[offset: offset + per_page]
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
+    # check for total length in a coins table
     total = len(coins)
+    # return up to 10 items per page to catalog page
     pagination_coins = get_coins(offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
@@ -181,6 +184,7 @@ def catalog():
 @app.route("/new_coin", methods=["GET", "POST"])
 def new_coin():
     if 'user_email' in session:
+        # get data from html form
         if request.method == "POST":
             coin = {
                 "name": request.form.get("name"),
@@ -196,14 +200,14 @@ def new_coin():
                 "timestamp": datetime.now(),
                 "created_by": session["user_email"]
             }
-            # insert new coin in to db
+            # insert new coin in to database
             mongo.db.coins.insert_one(coin)
             email = session['user_email']
             flash("New coin added into database")
             return redirect(url_for("profile", user_email=email))
+        # read type data from database and sort ascending
         type = mongo.db.coin_type.find().sort("type", 1)
-
-        # load json country list
+        # load country list from json file
         json_countries = open('static/json/countries.json')
         cl = json.load(json_countries)
         return render_template("new_coin.html", type=type, list=cl)
@@ -214,6 +218,7 @@ def new_coin():
 @app.route("/edit_coin/<id>", methods=["GET", "POST"])
 def edit_coin(id):
     if 'user_email' in session:
+        # get data from html form
         if request.method == "POST":
             coin_edit = {
                 "name": request.form.get("name"),
@@ -229,15 +234,15 @@ def edit_coin(id):
                 "timestamp": datetime.now(),
                 "created_by": session["user_email"]
             }
-            # update coin in to db
+            # update coin in to database
             mongo.db.coins.update({"_id": ObjectId(id)}, coin_edit)
             email = session['user_email']
             flash("Coin details updated")
             return redirect(url_for("profile", user_email=email))
         coin = mongo.db.coins.find_one({"_id": ObjectId(id)})
+        # read type data from database and sort ascending
         type = mongo.db.coin_type.find().sort("type", 1)
-
-        # load json country list
+        # load country list from json file
         json_countries = open('static/json/countries.json')
         cl = json.load(json_countries)
         return render_template("edit_coin.html", coin=coin, type=type, list=cl)
@@ -247,7 +252,7 @@ def edit_coin(id):
 # Delete Coin route
 @app.route("/delete_coin/<id>")
 def delete_coin(id):
-    # if user is logged in remove user record from db
+    # if user is logged in remove user record from database
     if 'user_email' in session:
         mongo.db.coins.remove({"_id": ObjectId(id)})
         flash("Coin deleted")
@@ -269,7 +274,9 @@ Types, Add Type, Edit Type, Delete Type functionality
 @app.route("/types")
 def types():
     if 'user_email' in session:
+        # check for admin email address
         if session['user_email'] == "admin@coinscatalog.info":
+            # read type data from database and sort ascending
             types = list(mongo.db.coin_type.find().sort("type", 1))
             return render_template("types.html", types=types)
     return redirect(url_for("home"))
@@ -279,12 +286,13 @@ def types():
 @app.route("/new_type", methods=["GET", "POST"])
 def new_type():
     if 'user_email' in session:
+        # check for admin email address
         if session['user_email'] == "admin@coinscatalog.info":
             if request.method == "POST":
                 type = {
                     "type": request.form.get("type")
                 }
-                # insert new type in to db
+                # insert new type into database
                 mongo.db.coin_type.insert_one(type)
                 flash("New type added")
                 return redirect(url_for("types"))
@@ -296,16 +304,17 @@ def new_type():
 @app.route("/edit_type/<id>", methods=["GET", "POST"])
 def edit_type(id):
     if 'user_email' in session:
+        # check for admin email address
         if session['user_email'] == "admin@coinscatalog.info":
             if request.method == "POST":
                 type_edit = {
                     "type": request.form.get("type")
                     }
-                # update type in to db
+                # update type into database
                 mongo.db.coin_type.update({"_id": ObjectId(id)}, type_edit)
                 flash("Type details updated")
                 return redirect(url_for("types"))
-
+            # read type data from database
             type = mongo.db.coin_type.find_one({"_id": ObjectId(id)})
             return render_template("edit_type.html", type=type)
     return redirect(url_for("home"))
@@ -334,4 +343,5 @@ def internal_error(e):
 # Environment variables
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")))
+            port=int(os.environ.get("PORT")),
+            debug=False)
