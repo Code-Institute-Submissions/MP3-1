@@ -155,16 +155,30 @@ Website contains:
 ### Database schema
 
 Database contains 3 tables (collections):
-- Coin
-- Coin type
-- User
+- coins
+- coin_type
+- users
 
-The fields for each table can be found in the image below:
+The fields for each table can be found in the images below:
 
 <details><summary>Database (click to view)</summary>
 
+database schema:
 ![](md_data/database/database_tables.png)
+
+coins table:
+![](md_data/database/coins.png)
+
+coin_type table:
+![](md_data/database/coin_types.png)
+
+users table:
+![](md_data/database/users.png)
 </details>
+
+I keep a country list in a separate json file.
+This could be actually a separate table like other tables in a mongodb database.
+I use it here, to see how a data works from a various sources.
 
 ## Surface
 
